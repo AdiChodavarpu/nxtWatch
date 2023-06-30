@@ -47,7 +47,7 @@ export const SocialMediaSites = styled.img`
   width: 30px;
 `
 export const ContactUsDescription = styled.p`
-  color: #475569;
+  color: #212121;
   font-size: 16px;
   font-family: 'Roboto';
   font-weight: 500;

@@ -1,4 +1,8 @@
 import {Component} from 'react'
+import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
+
+import HomeVideosSection from '../HomeVideosSection'
 
 import {
   MainContainer,
@@ -15,25 +19,66 @@ import {
   SearchInputElement,
   SearchIcon,
   SearchIconButton,
+  VideoMainConatainer,
+  VideoList,
 } from './styledComponents'
 
 import Header from '../Header'
 import SideBar from '../sideBar'
 
+const apiStatusConstants = {
+  initail: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESSS',
+}
+
 class Home extends Component {
   state = {
     closeButton: false,
+    homeVideosDetails: [],
+    apiStatus: apiStatusConstants.initail,
   }
 
   componentDidMount() {
     this.getHomeVideos()
   }
 
+  getChannelDetails = data => ({
+    name: data.name,
+    profileImageUrl: data.profile_image_url,
+  })
+
   getHomeVideos = async () => {
-    const Url = 'https://apis.ccbp.in/videos/all?search='
-    const data = await fetch(Url)
-    const response = await data.json()
-    console.log(response)
+    this.setState({apiStatus: apiStatusConstants.inProgress})
+    const token = Cookies.get('jwt_token')
+    const url = 'https://apis.ccbp.in/videos/all?search='
+
+    const options = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      method: 'GET',
+    }
+
+    const response = await fetch(url, options)
+    if (response.ok) {
+      const fetchedData = await response.json()
+      const updatedData = fetchedData.videos.map(eachitem => ({
+        id: eachitem.id,
+        title: eachitem.title,
+        thumbnailUrl: eachitem.thumbnail_url,
+        channel: this.getChannelDetails(eachitem.channel),
+        viewsCount: eachitem.view_count,
+        publishedAt: eachitem.published_at,
+      }))
+      this.setState({
+        homeVideosDetails: updatedData,
+        apiStatus: apiStatusConstants.success,
+      })
+    } else {
+      this.setState({apiStatus: apiStatusConstants.failure})
+    }
   }
 
   onClickCloseButton = () => {
@@ -55,19 +100,57 @@ class Home extends Component {
     </HomeBannerContainer>
   )
 
+  renderSuccessView = () => {
+    const {homeVideosDetails} = this.state
+    return (
+      <VideoList>
+        {homeVideosDetails.map(eachitem => (
+          <HomeVideosSection key={eachitem.id} EachVideo={eachitem} />
+        ))}
+      </VideoList>
+    )
+  }
+
+  renderLoader = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+    </div>
+  )
+
+  renderFailureView = () => <h1>Failure View</h1>
+
+  renderHome = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderSuccessView()
+
+      case apiStatusConstants.inProgress:
+        return this.renderLoader()
+
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+
+      default:
+        return null
+    }
+  }
+
   renderHomeContainer = () => (
     <HomeMainContainer>
       <SearchInputContainer>
-        <SearchInputElement placeholder="Search" />
+        <SearchInputElement type="search" placeholder="Search" />
         <SearchIconButton type="button">
           <SearchIcon />
         </SearchIconButton>
       </SearchInputContainer>
+      <VideoMainConatainer>{this.renderHome()}</VideoMainConatainer>
     </HomeMainContainer>
   )
 
   render() {
     const {closeButton} = this.state
+
     return (
       <>
         <Header />

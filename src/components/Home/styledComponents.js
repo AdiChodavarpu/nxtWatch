@@ -16,6 +16,7 @@ export const HomeContainer = styled.div`
   background-color: #e2e8f0;
   width: 100%;
   height: 100vh;
+  overflow-y: scroll;
 `
 export const HomeBannerContainer = styled.div`
   display: flex;
@@ -55,6 +56,7 @@ export const CloseIcon = styled(IoMdClose)`
 export const CloseButton = styled.button`
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `
 export const HomeMainContainer = styled.div`
   display: flex;
@@ -94,4 +96,14 @@ export const SearchIconButton = styled.button`
   width: 35px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+`
+export const VideoMainConatainer = styled.div`
+  height: 100vh;
+  width: 100%;
+  background-color: red;
+`
+export const VideoList = styled.ul`
+  height: 100vh;
+  width: 100%;
+  list-style-type: none;
 `
