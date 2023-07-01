@@ -12,23 +12,32 @@ import {
   SocialMediaContainer,
   SocialMediaSites,
   ContactUsDescription,
+  NavLinks,
 } from './styledComponents'
 
 const SideBar = () => (
   <SideBarContainer>
     <SideBarListContainer>
-      <SideBarListItems>
-        <AiTwotoneHome /> <ListCategory>Home</ListCategory>
-      </SideBarListItems>
-      <SideBarListItems>
-        <AiFillFire /> <ListCategory>Trending</ListCategory>
-      </SideBarListItems>
-      <SideBarListItems>
-        <SiYoutubegaming /> <ListCategory>Gaming</ListCategory>
-      </SideBarListItems>
-      <SideBarListItems>
-        <MdPlaylistAdd /> <ListCategory>Saved videos</ListCategory>
-      </SideBarListItems>
+      <NavLinks to="/">
+        <SideBarListItems>
+          <AiTwotoneHome /> <ListCategory>Home</ListCategory>
+        </SideBarListItems>
+      </NavLinks>
+      <NavLinks to="/trending">
+        <SideBarListItems>
+          <AiFillFire /> <ListCategory>Trending</ListCategory>
+        </SideBarListItems>
+      </NavLinks>
+      <NavLinks to="/gaming">
+        <SideBarListItems>
+          <SiYoutubegaming /> <ListCategory>Gaming</ListCategory>
+        </SideBarListItems>
+      </NavLinks>
+      <NavLinks to="/savedvideos">
+        <SideBarListItems>
+          <MdPlaylistAdd /> <ListCategory>Saved videos</ListCategory>
+        </SideBarListItems>
+      </NavLinks>
     </SideBarListContainer>
     <ContactContainer>
       <ContactUsHeading>CONTACT US</ContactUsHeading>
