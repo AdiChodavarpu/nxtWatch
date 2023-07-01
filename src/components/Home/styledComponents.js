@@ -13,7 +13,7 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: #e2e8f0;
+
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
@@ -66,7 +66,7 @@ export const HomeMainContainer = styled.div`
   width: 100%;
   background-color: #f4f4f4;
   height: 100vh;
-  padding: 15px;
+  padding: 20px;
 `
 export const SearchInputContainer = styled.div`
   display: flex;
@@ -74,6 +74,7 @@ export const SearchInputContainer = styled.div`
   align-items: center;
   border: 1px solid #909090;
   border-radius: 5px;
+  margin-left: 13px;
 `
 export const SearchInputElement = styled.input`
   height: 28px;
@@ -96,14 +97,19 @@ export const SearchIconButton = styled.button`
   width: 35px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  cursor: pointer;
 `
 export const VideoMainConatainer = styled.div`
   height: 100vh;
   width: 100%;
-  background-color: red;
 `
 export const VideoList = styled.ul`
   height: 100vh;
   width: 100%;
   list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0px;
 `

@@ -38,6 +38,8 @@ class Home extends Component {
     closeButton: false,
     homeVideosDetails: [],
     apiStatus: apiStatusConstants.initail,
+    userSearchInput: '',
+    searchValue: '',
   }
 
   componentDidMount() {
@@ -49,10 +51,15 @@ class Home extends Component {
     profileImageUrl: data.profile_image_url,
   })
 
+  onChangeUserSearch = event => {
+    this.setState({userSearchInput: event.target.value})
+  }
+
   getHomeVideos = async () => {
+    const {searchValue} = this.state
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const token = Cookies.get('jwt_token')
-    const url = 'https://apis.ccbp.in/videos/all?search='
+    const url = `https://apis.ccbp.in/videos/all?search=${searchValue}`
 
     const options = {
       headers: {
@@ -83,6 +90,11 @@ class Home extends Component {
 
   onClickCloseButton = () => {
     this.setState({closeButton: true})
+  }
+
+  onClickSearchButton = () => {
+    const {userSearchInput} = this.state
+    this.setState({searchValue: userSearchInput}, this.getHomeVideos)
   }
 
   renderBannerContainer = () => (
@@ -139,8 +151,12 @@ class Home extends Component {
   renderHomeContainer = () => (
     <HomeMainContainer>
       <SearchInputContainer>
-        <SearchInputElement type="search" placeholder="Search" />
-        <SearchIconButton type="button">
+        <SearchInputElement
+          type="search"
+          placeholder="Search"
+          onChange={this.onChangeUserSearch}
+        />
+        <SearchIconButton type="button" onClick={this.onClickSearchButton}>
           <SearchIcon />
         </SearchIconButton>
       </SearchInputContainer>
