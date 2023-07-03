@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 
 import {
   MainContainer,
@@ -9,10 +10,12 @@ import {
   TrendingIconContaier,
   TrendingHeading,
   TrendingMainContainer,
+  TrendingVideoList,
 } from './styledComponents'
 
 import Header from '../Header'
 import SideBar from '../sideBar'
+import TrendingVideoSection from '../TredingVideosSection'
 
 const apiStatusConstants = {
   initail: 'INITIAL',
@@ -78,10 +81,44 @@ class Trending extends Component {
     </TrendingBannerContainer>
   )
 
+  renderTrendingSuccessView = () => {
+    const {TrendingVideosList} = this.state
+    return (
+      <TrendingVideoList>
+        {TrendingVideosList.map(eachitem => (
+          <TrendingVideoSection key={eachitem.id} EachVideo={eachitem} />
+        ))}
+      </TrendingVideoList>
+    )
+  }
+
+  renderLoader = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+    </div>
+  )
+
+  renderTrendingFailureView = () => <h1>Failure View</h1>
+
+  renderTredingVideos = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderTrendingSuccessView()
+
+      case apiStatusConstants.inProgress:
+        return this.renderLoader()
+
+      case apiStatusConstants.failure:
+        return this.renderTrendingFailureView()
+
+      default:
+        return null
+    }
+  }
+
   render() {
-    const {TrendingVideosList, apiStatus} = this.state
-    console.log(TrendingVideosList)
-    console.log(apiStatus)
     return (
       <>
         <Header />
@@ -89,7 +126,9 @@ class Trending extends Component {
           <SideBar />
           <TrendingContainer>
             {this.TrendingBanner()}
-            <TrendingMainContainer>sdfsf</TrendingMainContainer>
+            <TrendingMainContainer>
+              {this.renderTredingVideos()}
+            </TrendingMainContainer>
           </TrendingContainer>
         </MainContainer>
       </>

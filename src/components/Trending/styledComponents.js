@@ -15,12 +15,14 @@ export const TrendingContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  overflow-y: scroll;
+  background-color: #f8fafc;
 `
 export const TrendingBannerContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 130px;
+  min-height: 110px;
   width: 100%;
   background-color: #f1f5f9;
 `
@@ -47,7 +49,16 @@ export const TrendingHeading = styled.h1`
   margin-left: 15px;
 `
 export const TrendingMainContainer = styled.div`
-  background-color: #e2e8f0;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 20px;
+`
+export const TrendingVideoList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   height: 100vh;
   width: 100%;
+  list-style-type: none;
 `
