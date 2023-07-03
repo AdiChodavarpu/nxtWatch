@@ -11,6 +11,11 @@ import {
   TrendingHeading,
   TrendingMainContainer,
   TrendingVideoList,
+  FailureContainer,
+  FailureImage,
+  FailureHeading,
+  FailureDescription,
+  RetryButton,
 } from './styledComponents'
 
 import Header from '../Header'
@@ -98,7 +103,20 @@ class Trending extends Component {
     </div>
   )
 
-  renderTrendingFailureView = () => <h1>Failure View</h1>
+  renderTrendingFailureView = () => (
+    <FailureContainer>
+      <FailureImage
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
+        alt="failure-view-light"
+      />
+      <FailureHeading>Oops! Something Went Wrong</FailureHeading>
+      <FailureDescription>
+        We are having some trouble to complete your request.
+      </FailureDescription>
+      <FailureDescription>Please try again.</FailureDescription>
+      <RetryButton type="button">Retry</RetryButton>
+    </FailureContainer>
+  )
 
   renderTredingVideos = () => {
     const {apiStatus} = this.state

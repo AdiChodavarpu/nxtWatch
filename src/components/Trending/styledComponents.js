@@ -62,3 +62,37 @@ export const TrendingVideoList = styled.ul`
   width: 100%;
   list-style-type: none;
 `
+export const FailureContainer = styled.div`
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const FailureImage = styled.img`
+  height: 250px;
+  width: 300px;
+`
+export const FailureHeading = styled.h1`
+  color: #231f20;
+  font-size: 30px;
+  font-family: 'Roboto';
+  margin: 10px;
+`
+
+export const FailureDescription = styled.p`
+  color: #231f20;
+  font-size: 18px;
+  font-family: 'Roboto';
+  margin: 5px;
+`
+export const RetryButton = styled.button`
+  color: #ffffff;
+  height: 36px;
+  width: 110px;
+  border-radius: 5px;
+  border: none;
+  background-color: #00306e;
+  margin-top: 20px;
+`

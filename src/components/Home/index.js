@@ -21,6 +21,15 @@ import {
   SearchIconButton,
   VideoMainConatainer,
   VideoList,
+  FailureContainer,
+  FailureImage,
+  FailureHeading,
+  FailureDescription,
+  RetryButton,
+  NoSearchContainer,
+  NoSearchImage,
+  NoSearchHeading,
+  NosearchDescription,
 } from './styledComponents'
 
 import Header from '../Header'
@@ -113,7 +122,7 @@ class Home extends Component {
     </HomeBannerContainer>
   )
 
-  renderSuccessView = () => {
+  renderSearchResultView = () => {
     const {homeVideosDetails} = this.state
     return (
       <VideoList>
@@ -124,13 +133,51 @@ class Home extends Component {
     )
   }
 
+  renderSuccessView = () => {
+    const {homeVideosDetails} = this.state
+    return (
+      <>
+        {homeVideosDetails.length > 0
+          ? this.renderSearchResultView()
+          : this.renderNoSearchResults()}
+      </>
+    )
+  }
+
+  renderNoSearchResults = () => (
+    <NoSearchContainer>
+      <NoSearchImage
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+        alt="no videos"
+      />
+      <NoSearchHeading>No Search results found</NoSearchHeading>
+      <NosearchDescription>
+        Try different key words or remove search filter
+      </NosearchDescription>
+      <RetryButton type="button">Retry</RetryButton>
+    </NoSearchContainer>
+  )
+
   renderLoader = () => (
     <div className="loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 
-  renderFailureView = () => <h1>Failure View</h1>
+  renderFailureView = () => (
+    <FailureContainer>
+      <FailureImage
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
+        alt="failure-view-light"
+      />
+      <FailureHeading>Oops! Something Went Wrong</FailureHeading>
+      <FailureDescription>
+        We are having some trouble to complete your request.
+      </FailureDescription>
+      <FailureDescription>Please try again.</FailureDescription>
+      <RetryButton type="button">Retry</RetryButton>
+    </FailureContainer>
+  )
 
   renderHome = () => {
     const {apiStatus} = this.state

@@ -11,6 +11,11 @@ import {
   GamingHeading,
   GamingVideosContainer,
   GamingVideosListContainer,
+  FailureContainer,
+  FailureImage,
+  FailureHeading,
+  FailureDescription,
+  RetryButton,
 } from './styledComponents'
 
 import GamingVideosSection from '../gamingVideosSection'
@@ -81,7 +86,20 @@ class Gaming extends Component {
     </div>
   )
 
-  renderFailureView = () => <h1>Failure View</h1>
+  renderFailureView = () => (
+    <FailureContainer>
+      <FailureImage
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
+        alt="failure-view-light"
+      />
+      <FailureHeading>Oops! Something Went Wrong</FailureHeading>
+      <FailureDescription>
+        We are having some trouble to complete your request.
+      </FailureDescription>
+      <FailureDescription>Please try again.</FailureDescription>
+      <RetryButton type="button">Retry</RetryButton>
+    </FailureContainer>
+  )
 
   renderGamingView = () => {
     const {apiStatus} = this.state
