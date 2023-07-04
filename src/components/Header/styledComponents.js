@@ -45,3 +45,47 @@ export const LogoutButton = styled.button`
   background-color: transparent;
   margin-left: 30px;
 `
+
+export const PopDisplayContainer = styled.div`
+  min-height: 160px;
+  min-width: 360px;
+
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+`
+export const PopUpHeading = styled.h1`
+  color: #606060;
+  font-size: 16px;
+  font-family: 'Roboto';
+`
+export const PopUpButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const CancelButton = styled.button`
+  color: #7e858e;
+  height: 35px;
+  width: 100px;
+  border-radius: 3px;
+  border: 1px solid #7e858e;
+  background-color: transparent;
+  margin: 15px;
+  cursor: pointer;
+`
+
+export const ConfirmButton = styled.button`
+  color: #ffffff;
+  height: 35px;
+  width: 100px;
+  border-radius: 3px;
+  border: 1px solid #3b82f6;
+  background-color: #3b82f6;
+  margin: 15px;
+  cursor: pointer;
+`
