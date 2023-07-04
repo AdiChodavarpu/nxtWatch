@@ -1,4 +1,9 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
+
+export const Navlink = styled(Link)`
+  text-decoration: none;
+`
 
 export const VideoItem = styled.li`
   width: 280px;

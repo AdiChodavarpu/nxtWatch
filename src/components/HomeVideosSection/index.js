@@ -11,6 +11,7 @@ import {
   ViewsContainer,
   ViewCount,
   SpanElement,
+  Navlink,
 } from './styledComponent'
 
 const HomeVideosSection = props => {
@@ -28,25 +29,26 @@ const HomeVideosSection = props => {
       GivenDate.getDate(),
     ),
   )
-  console.log(DatedNow)
 
   return (
-    <VideoItem>
-      <ThumbnaiImage src={thumbnailUrl} alt={title} />
-      <VideoDetailsContainer>
-        <ProfileLogo src={profileImageUrl} alt={name} />
-        <VideoDescriptionDetailsContainer>
-          <VideoTitle>{title}</VideoTitle>
-          <ChanneName>{name}</ChanneName>
-          <ViewsContainer>
-            <ViewCount>
-              {viewsCount} <SpanElement>views</SpanElement>
-            </ViewCount>
-            <ViewCount>.{DatedNow}</ViewCount>
-          </ViewsContainer>
-        </VideoDescriptionDetailsContainer>
-      </VideoDetailsContainer>
-    </VideoItem>
+    <Navlink to={`/videos/${id}`}>
+      <VideoItem>
+        <ThumbnaiImage src={thumbnailUrl} alt={title} />
+        <VideoDetailsContainer>
+          <ProfileLogo src={profileImageUrl} alt={name} />
+          <VideoDescriptionDetailsContainer>
+            <VideoTitle>{title}</VideoTitle>
+            <ChanneName>{name}</ChanneName>
+            <ViewsContainer>
+              <ViewCount>
+                {viewsCount} <SpanElement>views</SpanElement>
+              </ViewCount>
+              <ViewCount>.{DatedNow}</ViewCount>
+            </ViewsContainer>
+          </VideoDescriptionDetailsContainer>
+        </VideoDetailsContainer>
+      </VideoItem>
+    </Navlink>
   )
 }
 

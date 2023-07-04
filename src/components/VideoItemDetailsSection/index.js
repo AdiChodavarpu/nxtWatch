@@ -2,11 +2,30 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import ReactPlayer from 'react-player'
 import Cookies from 'js-cookie'
+import {formatDistanceToNow} from 'date-fns'
 
 import {
   MainContainer,
   VideoIemDetailsContainer,
   ReactPlayContainer,
+  VideoItemDetailsTopSection,
+  ViewsContainer,
+  VideoItemDetailsViews,
+  VideoDetailsHeading,
+  VideoDetailsParagraph,
+  IconsContainer,
+  IconDescription,
+  IconsItemsContainer,
+  LikeIcon,
+  DisLikeIcon,
+  SaveICon,
+  DotElement,
+  Line,
+  VideoDetailsBottomContainer,
+  ProfileImage,
+  ChannelContainer,
+  Subscribers,
+  ChannelHeading,
 } from './styledComponents'
 
 import Header from '../Header'
@@ -32,6 +51,7 @@ class VideoItemDetailsSection extends Component {
   getChannelDetails = data => ({
     name: data.name,
     profileImageUrl: data.profile_image_url,
+    subscriberCount: data.subscriber_count,
   })
 
   getVideoItemDetails = async () => {
@@ -85,7 +105,77 @@ class VideoItemDetailsSection extends Component {
     )
   }
 
-  renderVidoItemDetailsSuccessView = () => <h1>Success View </h1>
+  getVideoToDescriptionSection = () => {
+    const {VideoItemDetailsList} = this.state
+    const {title, publishedAt, viewCount} = VideoItemDetailsList
+    const GivenDate = new Date(publishedAt)
+
+    const DatedNow = formatDistanceToNow(
+      new Date(
+        GivenDate.getFullYear(),
+        GivenDate.getMonth(),
+        GivenDate.getDate(),
+      ),
+    )
+
+    return (
+      <VideoItemDetailsTopSection>
+        <VideoDetailsHeading>{title}</VideoDetailsHeading>
+        <VideoItemDetailsViews>
+          <ViewsContainer>
+            <VideoDetailsParagraph>{viewCount} views</VideoDetailsParagraph>
+            <VideoDetailsParagraph>
+              <DotElement />
+              {DatedNow}
+            </VideoDetailsParagraph>
+          </ViewsContainer>
+
+          <IconsContainer>
+            <IconsItemsContainer>
+              <LikeIcon />
+              <IconDescription>Like</IconDescription>
+            </IconsItemsContainer>
+
+            <IconsItemsContainer>
+              <DisLikeIcon />
+              <IconDescription>Dislike</IconDescription>
+            </IconsItemsContainer>
+            <IconsItemsContainer>
+              <SaveICon />
+              <IconDescription>Save</IconDescription>
+            </IconsItemsContainer>
+          </IconsContainer>
+        </VideoItemDetailsViews>
+      </VideoItemDetailsTopSection>
+    )
+  }
+
+  getVideoBottomDescriptionSection = () => {
+    const {VideoItemDetailsList} = this.state
+    const {channel, description} = VideoItemDetailsList
+    const {name, profileImageUrl, subscriberCount} = channel
+
+    return (
+      <VideoDetailsBottomContainer>
+        <ProfileImage src={profileImageUrl} alt={name} />
+        <ChannelContainer>
+          <ChannelHeading>{name}</ChannelHeading>
+          <Subscribers>{subscriberCount} subscribers</Subscribers>
+          <IconDescription>{description}</IconDescription>
+        </ChannelContainer>
+      </VideoDetailsBottomContainer>
+    )
+  }
+
+  renderVidoItemDetailsSuccessView = () => (
+    <>
+      {this.getVideoFromUrl()}
+      {this.getVideoToDescriptionSection()}
+
+      <Line />
+      {this.getVideoBottomDescriptionSection()}
+    </>
+  )
 
   renderLoader = () => (
     <div className="loader-container" data-testid="loader">

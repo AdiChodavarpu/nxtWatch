@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 export const TrendingItemContainer = styled.li`
   width: 100%;
-  height: 320px;
+  height: 200px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
