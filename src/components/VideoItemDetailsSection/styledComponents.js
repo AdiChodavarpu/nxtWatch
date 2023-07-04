@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import ReactPlayer from 'react-player'
 
 export const MainContainer = styled.div`
   display: flex;
@@ -17,14 +16,10 @@ export const VideoIemDetailsContainer = styled.div`
   align-items: flex-start;
   overflow-y: scroll;
   background-color: #f8fafc;
+  padding: 20px;
 `
-export const ReactPlayConatiner = styled.div`
-  height: 100px;
-  width: 100px;
-  margin: 0px;
-`
-export const ReactPlayerVideo = styled(ReactPlayer)`
-  height: 100px;
-  width: 100px;
-  margin: 0px;
+export const ReactPlayContainer = styled.div`
+  height: 100vh;
+  width: 100%;
+  cursor: pointer;
 `

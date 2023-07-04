@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const TrendingItemContainer = styled.li`
   width: 100%;
@@ -45,4 +46,8 @@ export const TrendingViewName = styled(TrendingChannelName)`
 
 export const TrandingSpan = styled.span`
   font-size: 14px;
+`
+
+export const Navlink = styled(Link)`
+  text-decoration: none;
 `

@@ -1,4 +1,5 @@
 import {formatDistanceToNow} from 'date-fns'
+
 import {
   TrendingItemContainer,
   TrendingImage,
@@ -8,6 +9,7 @@ import {
   TrendingViewContainer,
   TrendingViewName,
   TrandingSpan,
+  Navlink,
 } from './styledComponents'
 
 const TrendingVideoSection = props => {
@@ -19,20 +21,22 @@ const TrendingVideoSection = props => {
   const dateDistance = formatDistanceToNow(new Date(publishedAt))
 
   return (
-    <TrendingItemContainer>
-      <TrendingImage src={thumbnailUrl} alt={title} />
-      <TrendingDescription>
-        <TrendingTitle>{title}</TrendingTitle>
-        <TrendingChannelName>{name}</TrendingChannelName>
-        <TrendingViewContainer>
-          <TrendingViewName>
-            {viewsCount}
-            <TrandingSpan>views</TrandingSpan>
-          </TrendingViewName>
-          <TrendingViewName>.{dateDistance}</TrendingViewName>
-        </TrendingViewContainer>
-      </TrendingDescription>
-    </TrendingItemContainer>
+    <Navlink to={`/videos/${id}`}>
+      <TrendingItemContainer>
+        <TrendingImage src={thumbnailUrl} alt={title} />
+        <TrendingDescription>
+          <TrendingTitle>{title}</TrendingTitle>
+          <TrendingChannelName>{name}</TrendingChannelName>
+          <TrendingViewContainer>
+            <TrendingViewName>
+              {viewsCount}
+              <TrandingSpan>views</TrandingSpan>
+            </TrendingViewName>
+            <TrendingViewName>.{dateDistance}</TrendingViewName>
+          </TrendingViewContainer>
+        </TrendingDescription>
+      </TrendingItemContainer>
+    </Navlink>
   )
 }
 
