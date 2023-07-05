@@ -4,6 +4,8 @@ import ReactPlayer from 'react-player'
 import Cookies from 'js-cookie'
 import {formatDistanceToNow} from 'date-fns'
 
+import SavedContext from '../../context/SavedContext'
+
 import {
   MainContainer,
   VideoIemDetailsContainer,

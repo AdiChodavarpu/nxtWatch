@@ -33,7 +33,7 @@ const SideBar = () => (
           <SiYoutubegaming /> <ListCategory>Gaming</ListCategory>
         </SideBarListItems>
       </NavLinks>
-      <NavLinks to="/savedvideos">
+      <NavLinks to="/saved-videos">
         <SideBarListItems>
           <MdPlaylistAdd /> <ListCategory>Saved videos</ListCategory>
         </SideBarListItems>
