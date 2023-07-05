@@ -48,9 +48,11 @@ export const SavedHeading = styled.h1`
   font-family: 'Roboto';
   margin-left: 15px;
 `
-export const SavedMainContainer = styled.div`
+export const SavedMainContainer = styled.ul`
   min-height: 100vh;
   width: 100%;
   padding-top: 20px;
   background-color: #f8fafc;
+  padding: 30px;
+  margin-top: 25px;
 `

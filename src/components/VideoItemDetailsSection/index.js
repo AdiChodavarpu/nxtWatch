@@ -134,8 +134,33 @@ class VideoItemDetailsSection extends Component {
     }))
   }
 
+  renderSavedSection = () => {
+    const {VideoItemDetailsList, Saved} = this.state
+
+    return (
+      <SavedContext.Consumer>
+        {value => {
+          const {updatedSavedList} = value
+
+          const onClickSaveButton = () => {
+            this.onClickSaveButton()
+            updatedSavedList(VideoItemDetailsList, Saved)
+          }
+          return (
+            <IconsItemsContainer>
+              <IconButton type="button" onClick={onClickSaveButton}>
+                <SaveICon color={Saved ? ' #3b82f6' : ' #606060'} />
+                <SaveDescription saved={Saved}>Save</SaveDescription>
+              </IconButton>
+            </IconsItemsContainer>
+          )
+        }}
+      </SavedContext.Consumer>
+    )
+  }
+
   getVideoToDescriptionSection = () => {
-    const {VideoItemDetailsList, Liked, Disliked, Saved} = this.state
+    const {VideoItemDetailsList, Liked, Disliked} = this.state
     const {title, publishedAt, viewCount} = VideoItemDetailsList
     const GivenDate = new Date(publishedAt)
 
@@ -175,12 +200,7 @@ class VideoItemDetailsSection extends Component {
                 </DislikeDescription>
               </IconButton>
             </IconsItemsContainer>
-            <IconsItemsContainer>
-              <IconButton type="button" onClick={this.onClickSaveButton}>
-                <SaveICon color={Saved ? ' #3b82f6' : ' #606060'} />
-                <SaveDescription saved={Saved}>Save</SaveDescription>
-              </IconButton>
-            </IconsItemsContainer>
+            {this.renderSavedSection()}
           </IconsContainer>
         </VideoItemDetailsViews>
       </VideoItemDetailsTopSection>

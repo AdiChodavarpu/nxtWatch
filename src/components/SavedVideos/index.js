@@ -8,6 +8,9 @@ import {
   SavedMainContainer,
 } from './styledComponents'
 
+import SavedContext from '../../context/SavedContext'
+import SavedVideoItemDetails from '../SavedVideoItemDetails'
+
 import Header from '../Header'
 import SideBar from '../sideBar'
 
@@ -17,13 +20,29 @@ const SavedVideos = () => {
       <SavedIconContainer>
         <SavedIcon />
       </SavedIconContainer>
-      <SavedHeading>Trending</SavedHeading>
+      <SavedHeading>Saved</SavedHeading>
     </SavedBannerContainer>
   )
 
-  const renderSavedVideosList = () => (
-    <SavedMainContainer>dfs</SavedMainContainer>
-  )
+  const renderSavedVideosList = () => {
+    console.log('sdf')
+
+    return (
+      <SavedContext.Consumer>
+        {value => {
+          const {SavedItemList} = value
+          console.log(SavedItemList)
+          return (
+            <SavedMainContainer>
+              {SavedItemList.map(eachitem => (
+                <SavedVideoItemDetails key={eachitem.id} SavedItem={eachitem} />
+              ))}
+            </SavedMainContainer>
+          )
+        }}
+      </SavedContext.Consumer>
+    )
+  }
 
   return (
     <>
