@@ -14,6 +14,9 @@ import {
   VideoDetailsHeading,
   VideoDetailsParagraph,
   IconsContainer,
+  LikeDescription,
+  DislikeDescription,
+  SaveDescription,
   IconDescription,
   IconsItemsContainer,
   LikeIcon,
@@ -26,6 +29,7 @@ import {
   ChannelContainer,
   Subscribers,
   ChannelHeading,
+  IconButton,
 } from './styledComponents'
 
 import Header from '../Header'
@@ -42,6 +46,9 @@ class VideoItemDetailsSection extends Component {
   state = {
     VideoItemDetailsList: [],
     apiStatus: apiStatusConstants.initail,
+    Liked: false,
+    Disliked: false,
+    Saved: false,
   }
 
   componentDidMount() {
@@ -105,8 +112,28 @@ class VideoItemDetailsSection extends Component {
     )
   }
 
+  onClickLikeButton = () => {
+    this.setState(prevValue => ({
+      Liked: !prevValue.Liked,
+      Disliked: false,
+    }))
+  }
+
+  onClickDislikeButton = () => {
+    this.setState(prevValue => ({
+      Disliked: !prevValue.Disliked,
+      Liked: false,
+    }))
+  }
+
+  onClickSaveButton = () => {
+    this.setState(prevValue => ({
+      Saved: !prevValue.Saved,
+    }))
+  }
+
   getVideoToDescriptionSection = () => {
-    const {VideoItemDetailsList} = this.state
+    const {VideoItemDetailsList, Liked, Disliked, Saved} = this.state
     const {title, publishedAt, viewCount} = VideoItemDetailsList
     const GivenDate = new Date(publishedAt)
 
@@ -132,17 +159,25 @@ class VideoItemDetailsSection extends Component {
 
           <IconsContainer>
             <IconsItemsContainer>
-              <LikeIcon />
-              <IconDescription>Like</IconDescription>
+              <IconButton type="button" onClick={this.onClickLikeButton}>
+                <LikeIcon color={Liked ? ' #3b82f6' : ' #606060'} />
+                <LikeDescription liked={Liked}>Like</LikeDescription>
+              </IconButton>
             </IconsItemsContainer>
 
             <IconsItemsContainer>
-              <DisLikeIcon />
-              <IconDescription>Dislike</IconDescription>
+              <IconButton type="button" onClick={this.onClickDislikeButton}>
+                <DisLikeIcon color={Disliked ? ' #3b82f6' : ' #606060'} />
+                <DislikeDescription disliked={Disliked}>
+                  Dislike
+                </DislikeDescription>
+              </IconButton>
             </IconsItemsContainer>
             <IconsItemsContainer>
-              <SaveICon />
-              <IconDescription>Save</IconDescription>
+              <IconButton type="button" onClick={this.onClickSaveButton}>
+                <SaveICon color={Saved ? ' #3b82f6' : ' #606060'} />
+                <SaveDescription saved={Saved}>Save</SaveDescription>
+              </IconButton>
             </IconsItemsContainer>
           </IconsContainer>
         </VideoItemDetailsViews>

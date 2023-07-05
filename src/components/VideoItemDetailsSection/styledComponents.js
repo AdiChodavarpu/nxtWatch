@@ -45,23 +45,51 @@ export const VideoItemDetailsViews = styled.div`
 export const LikeIcon = styled(AiOutlineLike)`
   height: 25px;
   width: 25px;
-  color: #606060;
-  margin-left: 5px;
+  margin-left: 2px;
+`
+export const LikeDescription = styled.p`
+  color: ${props => (props.liked ? '#3b82f6' : ' #606060')};
+  font-size: 18px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin-left: 2px;
 `
 
 export const DisLikeIcon = styled(AiOutlineDislike)`
   height: 25px;
   width: 25px;
-  color: #606060;
-  margin-left: 5px;
+  margin-left: 2px;
 `
+export const DislikeDescription = styled.p`
+  color: ${props => (props.disliked ? '#3b82f6' : ' #606060')};
+  font-size: 18px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin-left: 2px;
+`
+
 export const SaveICon = styled(MdPlaylistAdd)`
   height: 25px;
   width: 25px;
   color: #606060;
 `
+export const SaveDescription = styled.p`
+  color: ${props => (props.saved ? '#3b82f6' : ' #606060')};
+  font-size: 18px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin-left: 2px;
+`
+
 export const DotElement = styled(BsDot)`
   color: #909090;
+`
+export const IconDescription = styled.p`
+  color: #606060;
+  font-size: 18px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin-left: 2px;
 `
 
 export const IconsContainer = styled.ul`
@@ -73,13 +101,6 @@ export const IconsContainer = styled.ul`
   margin-right: 10px;
   padding: 0px;
   list-style-type: none;
-`
-export const IconDescription = styled.p`
-  color: #606060;
-  font-size: 16px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  margin-left: 5px;
 `
 
 export const IconsItemsContainer = styled.li`
@@ -151,4 +172,13 @@ export const Subscribers = styled.p`
 
   margin: 0px;
   margin-top: 8px;
+`
+export const IconButton = styled.button`
+  color: ${props => (props.liked ? '#3b82f6' : ' #606060')};
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
