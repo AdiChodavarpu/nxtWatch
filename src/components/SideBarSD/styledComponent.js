@@ -5,15 +5,10 @@ import styled from 'styled-components'
 export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 250px;
+  justify-content: center;
+  align-items: center;
+
   background-color: #ffffff;
-  height: 100vh;
-  padding-left: 20px;
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
 `
 export const SideBarListContainer = styled.ul`
   list-style-type: none;

@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 import {BsDot} from 'react-icons/bs'
+import {Link} from 'react-router-dom'
+
+export const Navlink = styled(Link)`
+  text-decoration: none;
+`
 
 export const SavedItemContainer = styled.li`
   list-style-type: none;

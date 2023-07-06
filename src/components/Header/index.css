@@ -1,0 +1,12 @@
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  min-width: 350px;
+  border-radius: 5px;
+
+  max-width: 400px;
+  max-height: 100vh;
+}
