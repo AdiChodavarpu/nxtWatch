@@ -20,6 +20,7 @@ class App extends Component {
   }
 
   updatedSavedList = (VideoDetails, Saved) => {
+    console.log(Saved)
     this.setState(preState => ({
       SavedVideoList: [...preState.SavedVideoList, VideoDetails],
     }))

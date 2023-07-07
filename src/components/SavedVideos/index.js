@@ -24,25 +24,21 @@ const SavedVideos = () => {
     </SavedBannerContainer>
   )
 
-  const renderSavedVideosList = () => {
-    console.log('sdf')
+  const renderSavedVideosList = () => (
+    <SavedContext.Consumer>
+      {value => {
+        const {SavedItemList} = value
 
-    return (
-      <SavedContext.Consumer>
-        {value => {
-          const {SavedItemList} = value
-          console.log(SavedItemList)
-          return (
-            <SavedMainContainer>
-              {SavedItemList.map(eachitem => (
-                <SavedVideoItemDetails key={eachitem.id} SavedItem={eachitem} />
-              ))}
-            </SavedMainContainer>
-          )
-        }}
-      </SavedContext.Consumer>
-    )
-  }
+        return (
+          <SavedMainContainer>
+            {SavedItemList.map(eachitem => (
+              <SavedVideoItemDetails key={eachitem.id} SavedItem={eachitem} />
+            ))}
+          </SavedMainContainer>
+        )
+      }}
+    </SavedContext.Consumer>
+  )
 
   return (
     <>

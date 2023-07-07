@@ -10,7 +10,7 @@ import {
   SavedViews,
   PublishedContainer,
   Dot,
-  Navlink,
+  NavLinkElement,
 } from './styledComponent'
 
 const SavedVideoItemDetails = props => {
@@ -21,7 +21,7 @@ const SavedVideoItemDetails = props => {
   const dateDistance = formatDistanceToNow(new Date(publishedAt))
 
   return (
-    <Navlink to={`/videos/${id}`}>
+    <NavLinkElement to={`/videos/${id}`}>
       <SavedItemContainer>
         <SavedImage src={thumbnailUrl} alt={title} />
         <SavedDescriptionContainer>
@@ -36,7 +36,7 @@ const SavedVideoItemDetails = props => {
           </SaveViewsContainer>
         </SavedDescriptionContainer>
       </SavedItemContainer>
-    </Navlink>
+    </NavLinkElement>
   )
 }
 

@@ -38,7 +38,7 @@ import Header from '../Header'
 import SideBar from '../sideBar'
 
 const apiStatusConstants = {
-  initail: 'INITIAL',
+  initial: 'INITIAL',
   success: 'SUCCESS',
   failure: 'FAILURE',
   inProgress: 'IN_PROGRESSS',
@@ -47,7 +47,7 @@ const apiStatusConstants = {
 class VideoItemDetailsSection extends Component {
   state = {
     VideoItemDetailsList: [],
-    apiStatus: apiStatusConstants.initail,
+    apiStatus: apiStatusConstants.initial,
     Liked: false,
     Disliked: false,
     Saved: false,
@@ -128,14 +128,14 @@ class VideoItemDetailsSection extends Component {
     }))
   }
 
-  onClickSaveButton = () => {
+  renderOnClickSaveButton = () => {
     this.setState(prevValue => ({
       Saved: !prevValue.Saved,
     }))
   }
 
   renderSavedSection = () => {
-    const {VideoItemDetailsList, Saved} = this.state
+    const {VideoItemDetailsList, Liked, Saved} = this.state
 
     return (
       <SavedContext.Consumer>
@@ -143,14 +143,17 @@ class VideoItemDetailsSection extends Component {
           const {updatedSavedList} = value
 
           const onClickSaveButton = () => {
-            this.onClickSaveButton()
-            updatedSavedList(VideoItemDetailsList, Saved)
+            this.renderOnClickSaveButton()
+            updatedSavedList({...VideoItemDetailsList, Liked}, Saved)
           }
+
           return (
             <IconsItemsContainer>
               <IconButton type="button" onClick={onClickSaveButton}>
                 <SaveICon color={Saved ? ' #3b82f6' : ' #606060'} />
-                <SaveDescription saved={Saved}>Save</SaveDescription>
+                <SaveDescription saved={Saved}>
+                  {Saved ? 'Saved' : 'Save'}
+                </SaveDescription>
               </IconButton>
             </IconsItemsContainer>
           )
