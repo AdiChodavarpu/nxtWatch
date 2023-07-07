@@ -22,11 +22,13 @@ import {
   NavOptionsSmallDevicesContainer,
   HamItemsContainer,
   HamIcon,
+  HamButton,
   LogoutIcon,
   LogoutBtn,
   CloseIcon,
   CloseButton,
   PopupItemsContainer,
+  ReactPopContainer,
 } from './styledComponents'
 
 import 'reactjs-popup/dist/index.css'
@@ -63,9 +65,11 @@ const Header = () => {
         className="popup-contents"
         modal
         trigger={
-          <LogoutBtn type="button">
-            <LogoutIcon />
-          </LogoutBtn>
+          <ReactPopContainer>
+            <LogoutBtn type="button">
+              <LogoutIcon />
+            </LogoutBtn>
+          </ReactPopContainer>
         }
       >
         {close => (
@@ -85,8 +89,16 @@ const Header = () => {
     </>
   )
 
-  const ReactPopUp = () => (
-    <Popup className="popup-content" modal trigger={<HamIcon />}>
+  const HamburgerIconPopUp = () => (
+    <Popup
+      className="popup-content"
+      modal
+      trigger={
+        <HamButton type="button">
+          <HamIcon />
+        </HamButton>
+      }
+    >
       {close => (
         <PopupItemsContainer>
           <CloseButton type="button" onClick={() => close()}>
@@ -119,7 +131,7 @@ const Header = () => {
           <MoonButton type="button">
             <MoonICon />
           </MoonButton>
-          {ReactPopUp()}
+          {HamburgerIconPopUp()}
 
           {renderSmallDevicePopUp()}
         </NavOptionsSmallDevicesContainer>

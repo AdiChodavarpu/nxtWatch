@@ -61,8 +61,8 @@ export const LogoutButton = styled.button`
 `
 
 export const PopDisplayContainer = styled.div`
-  min-height: 160px;
-  min-width: 360px;
+  height: 160px;
+  width: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,7 +71,7 @@ export const PopDisplayContainer = styled.div`
   border-radius: 10px;
 
   @media screen and (max-width: 767px) {
-    min-height: 150px;
+    min-height: 180px;
     min-width: 280px;
     display: flex;
     flex-direction: column;
@@ -125,6 +125,12 @@ export const HamIcon = styled(GiHamburgerMenu)`
   width: 24px;
   margin-left: 15px;
 `
+
+export const HamButton = styled.button`
+  background-color: transparent;
+  border: none;
+`
+
 export const LogoutIcon = styled(FiLogOut)`
   height: 24px;
   width: 24px;
@@ -161,4 +167,9 @@ export const CloseButton = styled.button`
   background-color: transparent;
   border: none;
   align-self: flex-end;
+`
+export const ReactPopContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

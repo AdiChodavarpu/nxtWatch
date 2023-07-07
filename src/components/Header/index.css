@@ -3,10 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 250px;
-  min-width: 350px;
-  border-radius: 5px;
-
+  min-height: 260px;
+  min-width: 360px;
   max-width: 400px;
   max-height: 100vh;
+  border-radius: 5px;
 }
