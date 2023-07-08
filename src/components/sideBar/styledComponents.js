@@ -2,6 +2,10 @@ import {Link} from 'react-router-dom'
 
 import styled from 'styled-components'
 
+import {AiTwotoneHome, AiFillFire} from 'react-icons/ai'
+import {SiYoutubegaming} from 'react-icons/si'
+import {MdPlaylistAdd} from 'react-icons/md'
+
 export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,7 +32,22 @@ export const ListCategory = styled.h1`
   font-size: 16px;
   font-family: 'Roboto';
   margin-left: 15px;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
+
+export const HomeIcon = styled(AiTwotoneHome)`
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
+`
+export const TrendingIcon = styled(AiFillFire)`
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
+`
+export const GamingIcon = styled(SiYoutubegaming)`
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
+`
+export const SavedIcon = styled(MdPlaylistAdd)`
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
+`
+
 export const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,6 +56,7 @@ export const ContactContainer = styled.div`
   margin-bottom: 10px;
 `
 export const ContactUsHeading = styled.h1`
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
   font-size: 16px;
   font-family: 'Roboto';
 `
