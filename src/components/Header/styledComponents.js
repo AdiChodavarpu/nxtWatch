@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import {HiMoon} from 'react-icons/hi'
 import {GiHamburgerMenu} from 'react-icons/gi'
-import {FiLogOut} from 'react-icons/fi'
+import {FiLogOut, FiSun} from 'react-icons/fi'
 import {IoMdClose} from 'react-icons/io'
 
 export const NavContainer = styled.nav`
   height: 80px;
   width: 100%;
-  background-color: #ffffff;
+  background-color: ${props => (props.isDark ? '#181818' : ' #f9f9f9')};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,10 +35,21 @@ export const MoonButton = styled.div`
   background-color: transparent;
   border: none;
   padding-top: 8px;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
 export const MoonICon = styled(HiMoon)`
   height: 30px;
   width: 30px;
+
+  @media screen and (max-width: 767px) {
+    height: 25px;
+    width: 25px;
+  }
+`
+export const LightICon = styled(FiSun)`
+  height: 30px;
+  width: 30px;
+
   @media screen and (max-width: 767px) {
     height: 25px;
     width: 25px;
@@ -129,6 +140,7 @@ export const HamIcon = styled(GiHamburgerMenu)`
 export const HamButton = styled.button`
   background-color: transparent;
   border: none;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
 
 export const LogoutIcon = styled(FiLogOut)`
@@ -141,6 +153,7 @@ export const LogoutBtn = styled.button`
   margin: 0px;
   margin-left: 15px;
   padding: 0px;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
 export const PopupItemsContainer = styled.div`
   display: flex;

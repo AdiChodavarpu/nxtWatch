@@ -17,6 +17,7 @@ import './App.css'
 class App extends Component {
   state = {
     SavedVideoList: [],
+    isDark: false,
   }
 
   updatedSavedList = (VideoDetails, Saved) => {
@@ -26,14 +27,22 @@ class App extends Component {
     }))
   }
 
+  updateTheme = () => {
+    this.setState(prevValue => ({
+      isDark: !prevValue.isDark,
+    }))
+  }
+
   render() {
-    const {SavedVideoList} = this.state
+    const {SavedVideoList, isDark} = this.state
 
     return (
       <SavedContext.Provider
         value={{
           SavedItemList: SavedVideoList,
           updatedSavedList: this.updatedSavedList,
+          isDark,
+          updateTheme: this.updateTheme,
         }}
       >
         <Switch>

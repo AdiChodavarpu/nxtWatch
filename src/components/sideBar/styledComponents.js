@@ -8,7 +8,7 @@ export const SideBarContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   width: 250px;
-  background-color: #ffffff;
+  background-color: ${props => (props.isDark ? '#181818' : ' #f9f9f9')};
   height: 100vh;
   padding-left: 20px;
   @media screen and (max-width: 767px) {
@@ -25,7 +25,6 @@ export const SideBarListItems = styled.li`
   align-items: center;
 `
 export const ListCategory = styled.h1`
-  color: #231f20;
   font-size: 16px;
   font-family: 'Roboto';
   margin-left: 15px;
@@ -52,7 +51,7 @@ export const SocialMediaSites = styled.img`
   width: 30px;
 `
 export const ContactUsDescription = styled.p`
-  color: #212121;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
   font-size: 16px;
   font-family: 'Roboto';
   font-weight: 500;
