@@ -26,25 +26,25 @@ const SideBar = () => (
           <SideBarListContainer>
             <NavLinks to="/">
               <SideBarListItems>
-                <HomeIcon isDark={isDark} />
+                <HomeIcon />
                 <ListCategory isDark={isDark}>Home</ListCategory>
               </SideBarListItems>
             </NavLinks>
             <NavLinks to="/trending">
               <SideBarListItems>
-                <TrendingIcon isDark={isDark} />
+                <TrendingIcon />
                 <ListCategory isDark={isDark}>Trending</ListCategory>
               </SideBarListItems>
             </NavLinks>
             <NavLinks to="/gaming">
               <SideBarListItems>
-                <GamingIcon isDark={isDark} />
+                <GamingIcon />
                 <ListCategory isDark={isDark}>Gaming</ListCategory>
               </SideBarListItems>
             </NavLinks>
             <NavLinks to="/saved-videos">
               <SideBarListItems>
-                <SavedIcon isDark={isDark} />
+                <SavedIcon isdark={isDark.string} />
                 <ListCategory isDark={isDark}>Saved videos</ListCategory>
               </SideBarListItems>
             </NavLinks>

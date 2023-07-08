@@ -131,7 +131,7 @@ const Header = () => (
         <NavContainer isDark={isDark}>
           <NavItemsContainer>
             <a href="/">
-              <WebSiteLogo src={ThemeLogo} />
+              <WebSiteLogo src={ThemeLogo} alt="website logo" />
             </a>
 
             <NavOptionsContainer>
@@ -139,6 +139,7 @@ const Header = () => (
                 type="button"
                 isDark={isDark}
                 onClick={UpdatethemeLogo}
+                data-testid="theme"
               >
                 {isDark ? <LightICon /> : <MoonICon />}
               </MoonButton>
@@ -151,6 +152,7 @@ const Header = () => (
 
             <NavOptionsSmallDevicesContainer>
               <MoonButton
+                data-testid="theme"
                 type="button"
                 isDark={isDark}
                 onClick={UpdatethemeLogo}

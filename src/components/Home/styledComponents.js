@@ -2,6 +2,10 @@ import {IoMdClose} from 'react-icons/io'
 import {BiSearch} from 'react-icons/bi'
 import styled from 'styled-components'
 
+export const HomeContainerElement = styled.div`
+  background-color: ${props => (props.isDark ? '#181818' : ' #f9f9f9')};
+`
+
 export const MainContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -21,15 +25,17 @@ export const HomeContainer = styled.div`
 export const HomeBannerContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   background-size: cover;
   padding: 25px;
   width: 100%;
+  min-height: 35vh;
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
 `
 export const BannerContainer = styled.div`
   display: flex;
   flex-direction: column;
+
   align-items: flex-start;
 `
 export const BannerImage = styled.img`
@@ -57,6 +63,7 @@ export const CloseButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  align-self: flex-start;
 `
 export const HomeMainContainer = styled.div`
   display: flex;
@@ -64,7 +71,7 @@ export const HomeMainContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  background-color: #f4f4f4;
+
   height: 100vh;
   padding: 20px;
 `

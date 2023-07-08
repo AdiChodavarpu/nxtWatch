@@ -2,7 +2,10 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
+import SavedContext from '../../context/SavedContext'
+
 import {
+  TrendingContainerElement,
   MainContainer,
   TrendingContainer,
   TrendingIcon,
@@ -78,7 +81,7 @@ class Trending extends Component {
   }
 
   TrendingBanner = () => (
-    <TrendingBannerContainer>
+    <TrendingBannerContainer data-testid="banner">
       <TrendingIconContaier>
         <TrendingIcon />
       </TrendingIconContaier>
@@ -138,18 +141,25 @@ class Trending extends Component {
 
   render() {
     return (
-      <>
-        <Header />
-        <MainContainer>
-          <SideBar />
-          <TrendingContainer>
-            {this.TrendingBanner()}
-            <TrendingMainContainer>
-              {this.renderTredingVideos()}
-            </TrendingMainContainer>
-          </TrendingContainer>
-        </MainContainer>
-      </>
+      <SavedContext.Consumer>
+        {value => {
+          const {isDark} = value
+          return (
+            <TrendingContainerElement data-testid="trending" isDark={isDark}>
+              <Header />
+              <MainContainer>
+                <SideBar />
+                <TrendingContainer>
+                  {this.TrendingBanner()}
+                  <TrendingMainContainer>
+                    {this.renderTredingVideos()}
+                  </TrendingMainContainer>
+                </TrendingContainer>
+              </MainContainer>
+            </TrendingContainerElement>
+          )
+        }}
+      </SavedContext.Consumer>
     )
   }
 }

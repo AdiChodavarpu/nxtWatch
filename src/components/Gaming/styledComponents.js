@@ -1,6 +1,10 @@
 import {SiYoutubegaming} from 'react-icons/si'
 import styled from 'styled-components'
 
+export const GamingContainerElement = styled.div`
+  background-color: ${props => (props.isDark ? '#0f0f0f' : ' #f9f9f9')};
+`
+
 export const MainContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -23,16 +27,14 @@ export const GamingBannerContainer = styled.div`
   align-items: center;
   min-height: 110px;
   width: 100%;
-  background-color: #f1f5f9;
+  background-color: #e2e8f0;
 `
 
 export const GamingIcon = styled(SiYoutubegaming)`
-  color: #ff0b37;
   height: 25px;
   width: 25px;
 `
 export const GamingIconContaier = styled.div`
-  background-color: #cbd5e1;
   border-radius: 50%;
   height: 60px;
   width: 60px;
@@ -40,6 +42,7 @@ export const GamingIconContaier = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 35px;
+  background-color: #cbd5e1;
 `
 export const GamingHeading = styled.h1`
   color: #231f20;
@@ -48,13 +51,11 @@ export const GamingHeading = styled.h1`
   margin-left: 15px;
 `
 export const GamingVideosContainer = styled.div`
-  background-color: red;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   height: 100vh;
   width: 100%;
-  background-color: #f8fafc;
 `
 export const GamingVideosListContainer = styled.ul`
   list-style-type: none;

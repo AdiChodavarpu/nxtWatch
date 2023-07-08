@@ -3,6 +3,10 @@ import {AiOutlineLike, AiOutlineDislike} from 'react-icons/ai'
 import {MdPlaylistAdd} from 'react-icons/md'
 import {BsDot} from 'react-icons/bs'
 
+export const VideoItemDetailsContainerElement = styled.div`
+  background-color: ${props => (props.isDark ? ' #0f0f0f' : ' #f9f9f9')};
+`
+
 export const MainContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -18,7 +22,7 @@ export const VideoIemDetailsContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   overflow-y: scroll;
-  background-color: #f8fafc;
+
   padding: 20px;
 `
 export const ReactPlayContainer = styled.div`
@@ -48,7 +52,7 @@ export const LikeIcon = styled(AiOutlineLike)`
   margin-left: 2px;
 `
 export const LikeDescription = styled.p`
-  color: ${props => (props.liked ? '#3b82f6' : ' #606060')};
+  color: ${props => (props.liked ? '#2563eb' : ' #64748b ')};
   font-size: 18px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -61,7 +65,7 @@ export const DisLikeIcon = styled(AiOutlineDislike)`
   margin-left: 2px;
 `
 export const DislikeDescription = styled.p`
-  color: ${props => (props.disliked ? '#3b82f6' : ' #606060')};
+  color: ${props => (props.disliked ? '#2563eb' : ' #64748b ')};
   font-size: 18px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -74,7 +78,7 @@ export const SaveICon = styled(MdPlaylistAdd)`
   color: #606060;
 `
 export const SaveDescription = styled.p`
-  color: ${props => (props.saved ? '#3b82f6' : ' #606060')};
+  color: ${props => (props.saved ? '#2563eb' : ' #64748b ')};
   font-size: 18px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -181,4 +185,39 @@ export const IconButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+export const FailureContainer = styled.div`
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const FailureImage = styled.img`
+  height: 250px;
+  width: 300px;
+`
+export const FailureHeading = styled.h1`
+  color: #231f20;
+  font-size: 30px;
+  font-family: 'Roboto';
+  margin: 10px;
+`
+
+export const FailureDescription = styled.p`
+  color: #231f20;
+  font-size: 18px;
+  font-family: 'Roboto';
+  margin: 5px;
+`
+export const RetryButton = styled.button`
+  color: #ffffff;
+  height: 36px;
+  width: 110px;
+  border-radius: 5px;
+  border: none;
+  background-color: #00306e;
+  margin-top: 20px;
 `

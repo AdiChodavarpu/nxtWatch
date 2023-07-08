@@ -2,16 +2,16 @@ import {formatDistanceToNow} from 'date-fns'
 
 import {
   VideoItem,
-  ThumbnaiImage,
+  ThumbnailImage,
   VideoDetailsContainer,
   ProfileLogo,
   VideoDescriptionDetailsContainer,
   VideoTitle,
-  ChanneName,
+  ChannelName,
   ViewsContainer,
   ViewCount,
   SpanElement,
-  Navlink,
+  NavLink,
 } from './styledComponent'
 
 const HomeVideosSection = props => {
@@ -31,14 +31,14 @@ const HomeVideosSection = props => {
   )
 
   return (
-    <Navlink to={`/videos/${id}`}>
+    <NavLink to={`/videos/${id}`}>
       <VideoItem>
-        <ThumbnaiImage src={thumbnailUrl} alt={title} />
+        <ThumbnailImage src={thumbnailUrl} alt="video thumbnail" />
         <VideoDetailsContainer>
-          <ProfileLogo src={profileImageUrl} alt={name} />
+          <ProfileLogo src={profileImageUrl} alt="channel logo" />
           <VideoDescriptionDetailsContainer>
             <VideoTitle>{title}</VideoTitle>
-            <ChanneName>{name}</ChanneName>
+            <ChannelName>{name}</ChannelName>
             <ViewsContainer>
               <ViewCount>
                 {viewsCount} <SpanElement>views</SpanElement>
@@ -48,7 +48,7 @@ const HomeVideosSection = props => {
           </VideoDescriptionDetailsContainer>
         </VideoDetailsContainer>
       </VideoItem>
-    </Navlink>
+    </NavLink>
   )
 }
 

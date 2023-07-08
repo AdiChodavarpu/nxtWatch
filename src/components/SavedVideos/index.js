@@ -1,4 +1,5 @@
 import {
+  SavedContainerElement,
   MainContainer,
   SavedContainer,
   SavedIcon,
@@ -14,44 +15,42 @@ import SavedVideoItemDetails from '../SavedVideoItemDetails'
 import Header from '../Header'
 import SideBar from '../sideBar'
 
-const SavedVideos = () => {
-  const TrendingBanner = () => (
-    <SavedBannerContainer>
-      <SavedIconContainer>
-        <SavedIcon />
-      </SavedIconContainer>
-      <SavedHeading>Saved</SavedHeading>
-    </SavedBannerContainer>
-  )
+const SavedVideos = () => (
+  <SavedContext.Consumer>
+    {value => {
+      const {SavedItemList, isDark} = value
 
-  const renderSavedVideosList = () => (
-    <SavedContext.Consumer>
-      {value => {
-        const {SavedItemList} = value
+      const TrendingBanner = () => (
+        <SavedBannerContainer data-testid="banner">
+          <SavedIconContainer>
+            <SavedIcon />
+          </SavedIconContainer>
+          <SavedHeading>Saved</SavedHeading>
+        </SavedBannerContainer>
+      )
 
-        return (
-          <SavedMainContainer>
-            {SavedItemList.map(eachitem => (
-              <SavedVideoItemDetails key={eachitem.id} SavedItem={eachitem} />
-            ))}
-          </SavedMainContainer>
-        )
-      }}
-    </SavedContext.Consumer>
-  )
+      const renderSavedVideosList = () => (
+        <SavedMainContainer>
+          {SavedItemList.map(eachitem => (
+            <SavedVideoItemDetails key={eachitem.id} SavedItem={eachitem} />
+          ))}
+        </SavedMainContainer>
+      )
 
-  return (
-    <>
-      <Header />
-      <MainContainer>
-        <SideBar />
-        <SavedContainer>
-          {TrendingBanner()}
-          {renderSavedVideosList()}
-        </SavedContainer>
-      </MainContainer>
-    </>
-  )
-}
+      return (
+        <SavedContainerElement isDark={isDark} data-testid="savedVideos">
+          <Header />
+          <MainContainer>
+            <SideBar />
+            <SavedContainer>
+              {TrendingBanner()}
+              {renderSavedVideosList()}
+            </SavedContainer>
+          </MainContainer>
+        </SavedContainerElement>
+      )
+    }}
+  </SavedContext.Consumer>
+)
 
 export default SavedVideos

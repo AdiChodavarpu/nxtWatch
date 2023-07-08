@@ -7,6 +7,7 @@ import {formatDistanceToNow} from 'date-fns'
 import SavedContext from '../../context/SavedContext'
 
 import {
+  VideoItemDetailsContainerElement,
   MainContainer,
   VideoIemDetailsContainer,
   ReactPlayContainer,
@@ -32,6 +33,11 @@ import {
   Subscribers,
   ChannelHeading,
   IconButton,
+  FailureContainer,
+  FailureImage,
+  FailureHeading,
+  FailureDescription,
+  RetryButton,
 } from './styledComponents'
 
 import Header from '../Header'
@@ -150,7 +156,7 @@ class VideoItemDetailsSection extends Component {
           return (
             <IconsItemsContainer>
               <IconButton type="button" onClick={onClickSaveButton}>
-                <SaveICon color={Saved ? ' #3b82f6' : ' #606060'} />
+                <SaveICon color={Saved ? '#2563eb' : ' #64748b '} />
                 <SaveDescription saved={Saved}>
                   {Saved ? 'Saved' : 'Save'}
                 </SaveDescription>
@@ -190,14 +196,14 @@ class VideoItemDetailsSection extends Component {
           <IconsContainer>
             <IconsItemsContainer>
               <IconButton type="button" onClick={this.onClickLikeButton}>
-                <LikeIcon color={Liked ? ' #3b82f6' : ' #606060'} />
+                <LikeIcon color={Liked ? '#2563eb' : ' #64748b '} />
                 <LikeDescription liked={Liked}>Like</LikeDescription>
               </IconButton>
             </IconsItemsContainer>
 
             <IconsItemsContainer>
               <IconButton type="button" onClick={this.onClickDislikeButton}>
-                <DisLikeIcon color={Disliked ? ' #3b82f6' : ' #606060'} />
+                <DisLikeIcon color={Disliked ? '#2563eb' : ' #64748b '} />
                 <DislikeDescription disliked={Disliked}>
                   Dislike
                 </DislikeDescription>
@@ -227,7 +233,7 @@ class VideoItemDetailsSection extends Component {
     )
   }
 
-  renderVidoItemDetailsSuccessView = () => (
+  renderVideoItemDetailsSuccessView = () => (
     <>
       {this.getVideoFromUrl()}
       {this.getVideoToDescriptionSection()}
@@ -243,14 +249,27 @@ class VideoItemDetailsSection extends Component {
     </div>
   )
 
-  renderVideoItemDetailsFailureView = () => <h1>Failure View </h1>
+  renderVideoItemDetailsFailureView = () => (
+    <FailureContainer>
+      <FailureImage
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
+        alt="failure view"
+      />
+      <FailureHeading>Oops! Something Went Wrong</FailureHeading>
+      <FailureDescription>
+        We are having some trouble to complete your request.
+      </FailureDescription>
+      <FailureDescription>Please try again.</FailureDescription>
+      <RetryButton type="button">Retry</RetryButton>
+    </FailureContainer>
+  )
 
   renderVideoItemDetailsSectionView = () => {
     const {apiStatus} = this.state
 
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.renderVidoItemDetailsSuccessView()
+        return this.renderVideoItemDetailsSuccessView()
 
       case apiStatusConstants.inProgress:
         return this.renderLoader()
@@ -265,15 +284,25 @@ class VideoItemDetailsSection extends Component {
 
   render() {
     return (
-      <>
-        <Header />
-        <MainContainer>
-          <SideBar />
-          <VideoIemDetailsContainer>
-            {this.renderVideoItemDetailsSectionView()}
-          </VideoIemDetailsContainer>
-        </MainContainer>
-      </>
+      <SavedContext.Consumer>
+        {value => {
+          const {isDark} = value
+          return (
+            <VideoItemDetailsContainerElement
+              isDark={isDark}
+              data-testid="videoItemDetails"
+            >
+              <Header />
+              <MainContainer>
+                <SideBar />
+                <VideoIemDetailsContainer>
+                  {this.renderVideoItemDetailsSectionView()}
+                </VideoIemDetailsContainer>
+              </MainContainer>
+            </VideoItemDetailsContainerElement>
+          )
+        }}
+      </SavedContext.Consumer>
     )
   }
 }

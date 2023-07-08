@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import {FaFire} from 'react-icons/fa'
 
+export const TrendingContainerElement = styled.div`
+  background-color: ${props => (props.isDark ? ' #0f0f0f' : ' #f9f9f9')};
+`
+
 export const MainContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -16,7 +20,6 @@ export const TrendingContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   overflow-y: scroll;
-  background-color: #f8fafc;
 `
 export const TrendingBannerContainer = styled.div`
   display: flex;

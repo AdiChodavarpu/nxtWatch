@@ -2,7 +2,10 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
+import SavedContext from '../../context/SavedContext'
+
 import {
+  GamingContainerElement,
   MainContainer,
   GamingContainer,
   GamingBannerContainer,
@@ -120,7 +123,7 @@ class Gaming extends Component {
   }
 
   GamingBannerSection = () => (
-    <GamingBannerContainer>
+    <GamingBannerContainer data-testid="banner">
       <GamingIconContaier>
         <GamingIcon />
       </GamingIconContaier>
@@ -130,18 +133,25 @@ class Gaming extends Component {
 
   render() {
     return (
-      <>
-        <Header />
-        <MainContainer>
-          <SideBar />
-          <GamingContainer>
-            {this.GamingBannerSection()}
-            <GamingVideosContainer>
-              {this.renderGamingView()}
-            </GamingVideosContainer>
-          </GamingContainer>
-        </MainContainer>
-      </>
+      <SavedContext.Consumer>
+        {value => {
+          const {isDark} = value
+          return (
+            <GamingContainerElement data-testid="gaming" isDark={isDark}>
+              <Header />
+              <MainContainer>
+                <SideBar />
+                <GamingContainer>
+                  {this.GamingBannerSection()}
+                  <GamingVideosContainer>
+                    {this.renderGamingView()}
+                  </GamingVideosContainer>
+                </GamingContainer>
+              </MainContainer>
+            </GamingContainerElement>
+          )
+        }}
+      </SavedContext.Consumer>
     )
   }
 }

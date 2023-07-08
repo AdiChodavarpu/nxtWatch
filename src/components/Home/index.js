@@ -4,7 +4,10 @@ import Loader from 'react-loader-spinner'
 
 import HomeVideosSection from '../HomeVideosSection'
 
+import SavedContext from '../../context/SavedContext'
+
 import {
+  HomeContainerElement,
   MainContainer,
   HomeContainer,
   HomeBannerContainer,
@@ -108,15 +111,22 @@ class Home extends Component {
   }
 
   renderBannerContainer = () => (
-    <HomeBannerContainer>
+    <HomeBannerContainer data-testid="banner">
       <BannerContainer>
-        <BannerImage src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png" />
+        <BannerImage
+          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+          alt="nxt watch logo"
+        />
         <BannerDescription>
           Buy Nxt Watch Premium prepaid plan with UPI
         </BannerDescription>
         <GetItNowButton type="button">GET IT NOW</GetItNowButton>
       </BannerContainer>
-      <CloseButton type="button" onClick={this.onClickCloseButton}>
+      <CloseButton
+        data-testid="close"
+        type="button"
+        onClick={this.onClickCloseButton}
+      >
         <CloseIcon />
       </CloseButton>
     </HomeBannerContainer>
@@ -204,7 +214,11 @@ class Home extends Component {
           placeholder="Search"
           onChange={this.onChangeUserSearch}
         />
-        <SearchIconButton type="button" onClick={this.onClickSearchButton}>
+        <SearchIconButton
+          data-testid="searchButton"
+          type="button"
+          onClick={this.onClickSearchButton}
+        >
           <SearchIcon />
         </SearchIconButton>
       </SearchInputContainer>
@@ -216,16 +230,23 @@ class Home extends Component {
     const {closeButton} = this.state
 
     return (
-      <>
-        <Header />
-        <MainContainer>
-          <SideBar />
-          <HomeContainer>
-            {closeButton ? null : this.renderBannerContainer()}
-            {this.renderHomeContainer()}
-          </HomeContainer>
-        </MainContainer>
-      </>
+      <SavedContext.Consumer>
+        {value => {
+          const {isDark} = value
+          return (
+            <HomeContainerElement data-testid="home" isDark={isDark}>
+              <Header />
+              <MainContainer>
+                <SideBar />
+                <HomeContainer>
+                  {closeButton ? null : this.renderBannerContainer()}
+                  {this.renderHomeContainer()}
+                </HomeContainer>
+              </MainContainer>
+            </HomeContainerElement>
+          )
+        }}
+      </SavedContext.Consumer>
     )
   }
 }

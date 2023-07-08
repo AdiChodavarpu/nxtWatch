@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
-export const Navlink = styled(Link)`
+export const NavLink = styled(Link)`
   text-decoration: none;
 `
 
@@ -14,7 +14,7 @@ export const VideoItem = styled.li`
   align-items: flex-start;
 `
 
-export const ThumbnaiImage = styled.img`
+export const ThumbnailImage = styled.img`
   height: 150px;
   width: 280px;
 `
@@ -42,7 +42,7 @@ export const VideoTitle = styled.h1`
   font-family: 'Roboto';
   margin: 0px;
 `
-export const ChanneName = styled.p`
+export const ChannelName = styled.p`
   color: #606060;
   font-size: 15px;
   font-family: 'Roboto';

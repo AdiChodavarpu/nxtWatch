@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import {FaFire} from 'react-icons/fa'
 
+export const SavedContainerElement = styled.div`
+  background-color: ${props => (props.isDark ? '#0f0f0f' : ' #f9f9f9')};
+`
+
 export const MainContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -16,7 +20,6 @@ export const SavedContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   overflow-y: auto;
-  background-color: #f8fafc;
 `
 export const SavedBannerContainer = styled.div`
   display: flex;
@@ -52,7 +55,7 @@ export const SavedMainContainer = styled.ul`
   min-height: 100vh;
   width: 100%;
   padding-top: 20px;
-  background-color: #f8fafc;
+
   padding: 30px;
   margin-top: 25px;
 `
