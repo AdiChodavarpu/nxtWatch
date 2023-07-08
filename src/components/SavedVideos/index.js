@@ -7,6 +7,10 @@ import {
   SavedIconContainer,
   SavedHeading,
   SavedMainContainer,
+  NoSavedContainer,
+  NoSavedImage,
+  NoSavedHeading,
+  NoSavedDescription,
 } from './styledComponents'
 
 import SavedContext from '../../context/SavedContext'
@@ -29,11 +33,26 @@ const SavedVideos = () => (
         </SavedBannerContainer>
       )
 
+      const NoSavedItems = () => (
+        <NoSavedContainer>
+          <NoSavedImage
+            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
+            alt="no saved videos"
+          />
+          <NoSavedHeading>No saved videos found</NoSavedHeading>
+          <NoSavedDescription>
+            You can save your videos while watching them
+          </NoSavedDescription>
+        </NoSavedContainer>
+      )
+
       const renderSavedVideosList = () => (
         <SavedMainContainer>
-          {SavedItemList.map(eachitem => (
-            <SavedVideoItemDetails key={eachitem.id} SavedItem={eachitem} />
-          ))}
+          {SavedItemList.length > 0
+            ? SavedItemList.map(eachitem => (
+                <SavedVideoItemDetails key={eachitem.id} SavedItem={eachitem} />
+              ))
+            : NoSavedItems()}
         </SavedMainContainer>
       )
 

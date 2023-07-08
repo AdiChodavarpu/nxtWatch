@@ -55,7 +55,32 @@ export const SavedMainContainer = styled.ul`
   min-height: 100vh;
   width: 100%;
   padding-top: 20px;
-
   padding: 30px;
   margin-top: 25px;
+`
+
+export const NoSavedContainer = styled.div`
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const NoSavedImage = styled.img`
+  height: 350px;
+  width: 500px;
+`
+export const NoSavedHeading = styled.h1`
+  color: #231f20;
+  font-size: 30px;
+  font-family: 'Roboto';
+  margin: 20px;
+`
+
+export const NoSavedDescription = styled.p`
+  color: #231f20;
+  font-size: 18px;
+  font-family: 'Roboto';
+  margin: 5px;
 `

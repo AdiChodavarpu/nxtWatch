@@ -9,6 +9,7 @@ import Trending from './components/Trending'
 import Gaming from './components/Gaming'
 import VideoItemDetailsSection from './components/VideoItemDetailsSection'
 import SavedVideos from './components/SavedVideos'
+import NotFound from './components/NotFound'
 import SavedContext from './context/SavedContext'
 
 import './App.css'
@@ -56,6 +57,7 @@ class App extends Component {
             path="/videos/:id"
             component={VideoItemDetailsSection}
           />
+          <Route component={NotFound} />
         </Switch>
       </SavedContext.Provider>
     )
