@@ -27,7 +27,7 @@ export const SavedBannerContainer = styled.div`
   align-items: center;
   min-height: 110px;
   width: 100%;
-  background-color: #f1f5f9;
+  background-color: ${props => (props.isDark ? '#212121' : ' #f1f5f9')};
 `
 
 export const SavedIcon = styled(FaFire)`
@@ -36,17 +36,18 @@ export const SavedIcon = styled(FaFire)`
   width: 25px;
 `
 export const SavedIconContainer = styled.div`
-  background-color: #cbd5e1;
+  background-color: ${props => (props.isDark ? '#0f0f0f' : ' #cbd5e1')};
+
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  height: 65px;
+  width: 65px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 35px;
 `
 export const SavedHeading = styled.h1`
-  color: #231f20;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#231f20')};
   font-size: 35px;
   font-family: 'Roboto';
   margin-left: 15px;
@@ -72,14 +73,14 @@ export const NoSavedImage = styled.img`
   width: 500px;
 `
 export const NoSavedHeading = styled.h1`
-  color: #231f20;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#231f20')};
   font-size: 30px;
   font-family: 'Roboto';
-  margin: 20px;
+  margin: 15px;
 `
 
 export const NoSavedDescription = styled.p`
-  color: #231f20;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#231f20')};
   font-size: 18px;
   font-family: 'Roboto';
   margin: 5px;

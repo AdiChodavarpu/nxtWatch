@@ -123,12 +123,19 @@ class Gaming extends Component {
   }
 
   GamingBannerSection = () => (
-    <GamingBannerContainer data-testid="banner">
-      <GamingIconContaier>
-        <GamingIcon />
-      </GamingIconContaier>
-      <GamingHeading>Gaming</GamingHeading>
-    </GamingBannerContainer>
+    <SavedContext.Consumer>
+      {value => {
+        const {isDark} = value
+        return (
+          <GamingBannerContainer isDark={isDark} data-testid="banner">
+            <GamingIconContaier isDark={isDark}>
+              <GamingIcon />
+            </GamingIconContaier>
+            <GamingHeading isDark={isDark}>Gaming</GamingHeading>
+          </GamingBannerContainer>
+        )
+      }}
+    </SavedContext.Consumer>
   )
 
   render() {

@@ -81,12 +81,19 @@ class Trending extends Component {
   }
 
   TrendingBanner = () => (
-    <TrendingBannerContainer data-testid="banner">
-      <TrendingIconContaier>
-        <TrendingIcon />
-      </TrendingIconContaier>
-      <TrendingHeading>Trending</TrendingHeading>
-    </TrendingBannerContainer>
+    <SavedContext.Consumer>
+      {value => {
+        const {isDark} = value
+        return (
+          <TrendingBannerContainer isDark={isDark} data-testid="banner">
+            <TrendingIconContaier isDark={isDark}>
+              <TrendingIcon />
+            </TrendingIconContaier>
+            <TrendingHeading isDark={isDark}>Trending</TrendingHeading>
+          </TrendingBannerContainer>
+        )
+      }}
+    </SavedContext.Consumer>
   )
 
   renderTrendingSuccessView = () => {

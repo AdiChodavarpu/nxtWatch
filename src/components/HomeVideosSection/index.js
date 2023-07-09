@@ -9,47 +9,69 @@ import {
   VideoTitle,
   ChannelName,
   ViewsContainer,
+  PostedDateContainer,
   ViewCount,
   SpanElement,
   NavLink,
+  Dot,
 } from './styledComponent'
 
-const HomeVideosSection = props => {
-  const {EachVideo} = props
+import SavedContext from '../../context/SavedContext'
 
-  const {id, title, thumbnailUrl, channel, viewsCount, publishedAt} = EachVideo
-  const {name, profileImageUrl} = channel
+const HomeVideosSection = props => (
+  <SavedContext.Consumer>
+    {value => {
+      const {isDark} = value
+      const {EachVideo} = props
 
-  const GivenDate = new Date(publishedAt)
+      const {
+        id,
+        title,
+        thumbnailUrl,
+        channel,
+        viewsCount,
+        publishedAt,
+      } = EachVideo
+      const {name, profileImageUrl} = channel
 
-  const DatedNow = formatDistanceToNow(
-    new Date(
-      GivenDate.getFullYear(),
-      GivenDate.getMonth(),
-      GivenDate.getDate(),
-    ),
-  )
+      const GivenDate = new Date(publishedAt)
 
-  return (
-    <NavLink to={`/videos/${id}`}>
-      <VideoItem>
-        <ThumbnailImage src={thumbnailUrl} alt="video thumbnail" />
-        <VideoDetailsContainer>
-          <ProfileLogo src={profileImageUrl} alt="channel logo" />
-          <VideoDescriptionDetailsContainer>
-            <VideoTitle>{title}</VideoTitle>
-            <ChannelName>{name}</ChannelName>
-            <ViewsContainer>
-              <ViewCount>
-                {viewsCount} <SpanElement>views</SpanElement>
-              </ViewCount>
-              <ViewCount>.{DatedNow}</ViewCount>
-            </ViewsContainer>
-          </VideoDescriptionDetailsContainer>
-        </VideoDetailsContainer>
-      </VideoItem>
-    </NavLink>
-  )
-}
+      const DatedNow = formatDistanceToNow(
+        new Date(
+          GivenDate.getFullYear(),
+          GivenDate.getMonth(),
+          GivenDate.getDate(),
+        ),
+      )
+
+      return (
+        <NavLink to={`/videos/${id}`}>
+          <VideoItem>
+            <ThumbnailImage src={thumbnailUrl} alt="video thumbnail" />
+            <VideoDetailsContainer>
+              <ProfileLogo src={profileImageUrl} alt="channel logo" />
+              <VideoDescriptionDetailsContainer>
+                <VideoTitle isDark={isDark}>{title}</VideoTitle>
+                <ChannelName isDark={isDark}>{name}</ChannelName>
+                <ViewsContainer>
+                  <ViewCount isDark={isDark}>
+                    {viewsCount}
+                    <SpanElement isDark={isDark}>views</SpanElement>
+                  </ViewCount>
+                  <PostedDateContainer>
+                    <ViewCount isDark={isDark}>
+                      <Dot />
+                      {DatedNow}
+                    </ViewCount>
+                  </PostedDateContainer>
+                </ViewsContainer>
+              </VideoDescriptionDetailsContainer>
+            </VideoDetailsContainer>
+          </VideoItem>
+        </NavLink>
+      )
+    }}
+  </SavedContext.Consumer>
+)
 
 export default HomeVideosSection

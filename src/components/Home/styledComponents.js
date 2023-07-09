@@ -92,6 +92,9 @@ export const SearchInputElement = styled.input`
   outline: none;
   color: 909090;
   cursor: pointer;
+  @media screen and (max-width: 767px) {
+    width: 250px;
+  }
 `
 export const SearchIcon = styled(BiSearch)`
   height: 15px;

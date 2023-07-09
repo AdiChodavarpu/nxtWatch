@@ -25,11 +25,11 @@ const SavedVideos = () => (
       const {SavedItemList, isDark} = value
 
       const TrendingBanner = () => (
-        <SavedBannerContainer data-testid="banner">
-          <SavedIconContainer>
+        <SavedBannerContainer isDark={isDark} data-testid="banner">
+          <SavedIconContainer isDark={isDark}>
             <SavedIcon />
           </SavedIconContainer>
-          <SavedHeading>Saved</SavedHeading>
+          <SavedHeading isDark={isDark}>Saved</SavedHeading>
         </SavedBannerContainer>
       )
 
@@ -39,8 +39,8 @@ const SavedVideos = () => (
             src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
             alt="no saved videos"
           />
-          <NoSavedHeading>No saved videos found</NoSavedHeading>
-          <NoSavedDescription>
+          <NoSavedHeading isDark={isDark}>No saved videos found</NoSavedHeading>
+          <NoSavedDescription isDark={isDark}>
             You can save your videos while watching them
           </NoSavedDescription>
         </NoSavedContainer>

@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
+import {BsDot} from 'react-icons/bs'
+
 export const NavLink = styled(Link)`
   text-decoration: none;
 `
@@ -37,13 +39,13 @@ export const VideoDescriptionDetailsContainer = styled.div`
   margin-left: 5px;
 `
 export const VideoTitle = styled.h1`
-  color: #383838;
+  color: ${props => (props.isDark ? '#ebebeb' : '#383838')};
   font-size: 15px;
   font-family: 'Roboto';
   margin: 0px;
 `
 export const ChannelName = styled.p`
-  color: #606060;
+  color: ${props => (props.isDark ? '#ebebeb' : ' #606060')};
   font-size: 15px;
   font-family: 'Roboto';
 
@@ -55,8 +57,10 @@ export const ViewsContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
+export const PostedDateContainer = styled(ViewsContainer)``
+
 export const ViewCount = styled.p`
-  color: #606060;
+  color: ${props => (props.isDark ? '#ebebeb' : ' #606060')};
   font-size: 13px;
   font-family: 'Roboto';
   margin: 0px;
@@ -66,8 +70,8 @@ export const ViewCount = styled.p`
 export const SpanElement = styled.span`
   font-size: 13px;
 `
-export const Dotspan = styled.span`
-  font-size: 10px;
-  margin: 0px;
-  padding: 0px;
+export const Dot = styled(BsDot)`
+  padding-top: 4px;
+  height: 13px;
+  width: 13px;
 `
