@@ -21,14 +21,18 @@ export const VideoIemDetailsContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  overflow-y: scroll;
-
+  overflow-y: auto;
   padding: 20px;
 `
 export const ReactPlayContainer = styled.div`
   height: 65vh;
   width: 100%;
   cursor: pointer;
+  @media screen and (max-width: 767px) {
+    height: 50vh;
+    width: 100%;
+    margin-bottom: 30px;
+  }
 `
 
 export const VideoItemDetailsTopSection = styled.div`
@@ -44,6 +48,13 @@ export const VideoItemDetailsViews = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  }
 `
 
 export const LikeIcon = styled(AiOutlineLike)`

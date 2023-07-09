@@ -115,7 +115,7 @@ class VideoItemDetailsSection extends Component {
     const {videoUrl} = VideoItemDetailsList
     return (
       <ReactPlayContainer>
-        <ReactPlayer url={videoUrl} height="65vh" width="100%" controls />
+        <ReactPlayer url={videoUrl} height="50vh" width="100%" controls />
       </ReactPlayContainer>
     )
   }

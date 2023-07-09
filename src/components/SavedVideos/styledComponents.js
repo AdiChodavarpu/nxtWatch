@@ -58,6 +58,9 @@ export const SavedMainContainer = styled.ul`
   padding-top: 20px;
   padding: 30px;
   margin-top: 25px;
+  @media screen and (max-width: 767px) {
+    width: 90%;
+  }
 `
 
 export const NoSavedContainer = styled.div`
@@ -67,16 +70,29 @@ export const NoSavedContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 767px) {
+    height: 60vh;
+    width: 100%;
+  }
 `
 export const NoSavedImage = styled.img`
   height: 350px;
   width: 500px;
+
+  @media screen and (max-width: 767px) {
+    height: 230px;
+    width: 300px;
+  }
 `
 export const NoSavedHeading = styled.h1`
   color: ${props => (props.isDark ? ' #f9f9f9' : '#231f20')};
   font-size: 30px;
   font-family: 'Roboto';
   margin: 15px;
+  @media screen and (max-width: 767px) {
+    font-size: 24px;
+    margin: 8px;
+  }
 `
 
 export const NoSavedDescription = styled.p`
@@ -84,4 +100,7 @@ export const NoSavedDescription = styled.p`
   font-size: 18px;
   font-family: 'Roboto';
   margin: 5px;
+  @media screen and (max-width: 767px) {
+    font-size: 13px;
+  }
 `

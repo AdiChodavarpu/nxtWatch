@@ -70,6 +70,7 @@ export const ViewCount = styled.p`
 export const SpanElement = styled.span`
   font-size: 13px;
 `
+
 export const Dot = styled(BsDot)`
   padding-top: 4px;
   height: 13px;

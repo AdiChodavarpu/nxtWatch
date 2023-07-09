@@ -1,18 +1,36 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import {BsDot} from 'react-icons/bs'
+
+export const Dot = styled(BsDot)`
+  padding-top: 4px;
+  height: 15px;
+  width: 19px;
+`
 
 export const TrendingItemContainer = styled.li`
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-
   margin-bottom: 15px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
 `
 export const TrendingImage = styled.img`
   height: 180px;
   width: 320px;
+  @media screen and (max-width: 767px) {
+    width: 280px;
+    margin-bottom: 10px;
+  }
 `
 export const TrendingDescription = styled.div`
   display: flex;

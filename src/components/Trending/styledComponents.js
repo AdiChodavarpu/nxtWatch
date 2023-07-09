@@ -73,6 +73,10 @@ export const FailureContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 767px) {
+    width: 90%;
+  }
 `
 export const FailureImage = styled.img`
   height: 250px;

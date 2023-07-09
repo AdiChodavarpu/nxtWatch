@@ -10,6 +10,7 @@ import {
   TrendingViewName,
   TrandingSpan,
   Navlink,
+  Dot,
 } from './styledComponents'
 
 const TrendingVideoSection = props => {
@@ -32,7 +33,10 @@ const TrendingVideoSection = props => {
               {viewsCount}
               <TrandingSpan>views</TrandingSpan>
             </TrendingViewName>
-            <TrendingViewName>.{dateDistance}</TrendingViewName>
+            <TrendingViewName>
+              <Dot />
+              {dateDistance}
+            </TrendingViewName>
           </TrendingViewContainer>
         </TrendingDescription>
       </TrendingItemContainer>
