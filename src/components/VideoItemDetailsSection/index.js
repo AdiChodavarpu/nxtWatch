@@ -141,16 +141,20 @@ class VideoItemDetailsSection extends Component {
   }
 
   renderSavedSection = () => {
-    const {VideoItemDetailsList, Liked, Saved} = this.state
+    const {VideoItemDetailsList, Liked, Disliked, Saved} = this.state
 
     return (
       <SavedContext.Consumer>
         {value => {
-          const {updatedSavedList} = value
+          const {updatedSavedList, SavedItemList} = value
+
+          const isPresent = SavedItemList.filter(
+            eachVideo => eachVideo.id === VideoItemDetailsList.id,
+          )
 
           const onClickSaveButton = () => {
             this.renderOnClickSaveButton()
-            updatedSavedList({...VideoItemDetailsList, Liked}, Saved)
+            updatedSavedList({...VideoItemDetailsList, Liked, Disliked, Saved})
           }
 
           return (
@@ -172,6 +176,7 @@ class VideoItemDetailsSection extends Component {
     <SavedContext.Consumer>
       {value => {
         const {isDark} = value
+
         const {VideoItemDetailsList, Liked, Disliked} = this.state
         const {title, publishedAt, viewCount} = VideoItemDetailsList
         const GivenDate = new Date(publishedAt)

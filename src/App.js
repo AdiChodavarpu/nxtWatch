@@ -21,11 +21,24 @@ class App extends Component {
     isDark: false,
   }
 
-  updatedSavedList = (VideoDetails, Saved) => {
-    console.log(Saved)
-    this.setState(preState => ({
-      SavedVideoList: [...preState.SavedVideoList, VideoDetails],
-    }))
+  updatedSavedList = VideoDetails => {
+    const {SavedVideoList} = this.state
+
+    const isPresent = SavedVideoList.find(
+      eachVideo => eachVideo.id === VideoDetails.id,
+    )
+
+    if (isPresent === undefined) {
+      this.setState(preState => ({
+        SavedVideoList: [...preState.SavedVideoList, VideoDetails],
+      }))
+    } else {
+      const RemoveItem = SavedVideoList.filter(
+        eachitem => eachitem.id !== VideoDetails.id,
+      )
+
+      this.setState({SavedVideoList: RemoveItem})
+    }
   }
 
   updateTheme = () => {
