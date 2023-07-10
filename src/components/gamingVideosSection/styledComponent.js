@@ -20,7 +20,7 @@ export const GamingImage = styled.img`
 `
 
 export const GamingHeading = styled.h1`
-  color: #313131;
+  color: ${props => (props.isDark ? '#f4f4f4' : '#383838')};
   font-size: 21px;
   font-family: 'Roboto';
   margin: 0px;
@@ -28,7 +28,7 @@ export const GamingHeading = styled.h1`
   margin-bottom: 5px;
 `
 export const GamingViews = styled.p`
-  color: #909090;
+  color: ${props => (props.isDark ? ' #ebebeb' : '#606060')};
   font-size: 16px;
   font-family: 'Roboto';
   margin: 0px;

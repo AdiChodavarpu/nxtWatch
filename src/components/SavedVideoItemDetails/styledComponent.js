@@ -24,13 +24,12 @@ export const SavedItemContainer = styled.li`
   }
 `
 export const SavedImage = styled.img`
-  height: 200px;
-  min-width: 370px;
+  height: 150px;
+  min-width: 280px;
 
-  @media screen and (max-width: 767px) {
-    max-width: 100px;
-    max-height: 180px;
-    overflow: hidden;
+  @media screen and (min-width: 767px) {
+    height: 200px;
+    min-width: 370px;
   }
 `
 export const SavedDescriptionContainer = styled.div`
@@ -47,18 +46,18 @@ export const SavedDescriptionContainer = styled.div`
   }
 `
 export const SavedItemHeading = styled.h1`
-  color: #231f20;
+  color: ${props => (props.isDark ? '#ebebeb' : '#231f20')};
   font-size: 28px;
   font-family: 'Roboto';
   margin: 0px;
   width: 82%;
   @media screen and (max-width: 767px) {
-    font-size: 20px;
+    font-size: 21px;
     width: 100%;
   }
 `
 export const SavedItemDescription = styled.p`
-  color: #606060;
+  color: ${props => (props.isDark ? '#cccccc' : ' #606060')};
   font-size: 18px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -72,9 +71,11 @@ export const SaveViewsContainer = styled.div`
 `
 export const SavedViews = styled(SavedItemDescription)`
   margin-right: 15px;
+  color: ${props => (props.isDark ? '#cccccc' : ' #606060')};
+  font-size: 16px;
 `
 export const Dot = styled(BsDot)`
-  color: #606060;
+  color: ${props => (props.isDark ? '#ebebeb' : ' #606060')};
   margin-top: 11px;
   font-size: 20px;
 `

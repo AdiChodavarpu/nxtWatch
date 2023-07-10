@@ -100,7 +100,7 @@ export const DotElement = styled(BsDot)`
   color: #909090;
 `
 export const IconDescription = styled.p`
-  color: #606060;
+  color: ${props => (props.isDark ? '#cccccc' : '#606060')};
   font-size: 18px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -131,14 +131,14 @@ export const ViewsContainer = styled.div`
 `
 
 export const VideoDetailsHeading = styled.h1`
-  color: #212121;
+  color: ${props => (props.isDark ? '#f4f4f4' : '#212121')};
   font-size: 20px;
   font-family: 'Roboto';
   margin: 8px;
   margin-top: 15px;
 `
 export const VideoDetailsParagraph = styled.p`
-  color: #909090;
+  color: ${props => (props.isDark ? '#cccccc' : '#909090')};
   font-size: 16px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -173,14 +173,14 @@ export const ChannelContainer = styled.div`
   padding: 15px;
 `
 export const ChannelHeading = styled.h1`
-  color: #212121;
+  color: ${props => (props.isDark ? '#f4f4f4' : '#212121')};
   font-size: 18px;
   font-family: 'Roboto';
 
   margin: 0px;
 `
 export const Subscribers = styled.p`
-  color: #909090;
+  color: ${props => (props.isDark ? '#cccccc' : '#606060')};
   font-size: 14px;
   font-family: 'Roboto';
   font-weight: 500;

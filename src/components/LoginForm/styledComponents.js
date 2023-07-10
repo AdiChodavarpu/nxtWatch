@@ -7,7 +7,7 @@ export const LoginMainContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: #f9f9f9;
+  background-color: ${props => (!props.isDark ? ' #f9f9f9' : ' #0f0f0f')};
 `
 export const LoginCardContainer = styled.div`
   display: flex;
@@ -15,9 +15,10 @@ export const LoginCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: ${props => (!props.isDark ? ' #ffffff' : ' #0f0f0f')};
   border-radius: 8px;
-  box-shadow: 1px 2px 3px 4px #cccccc;
+  box-shadow: 1px 2px 3px 4px
+    ${props => (props.isDark ? ' #313131' : '#cbd5e1')};
 `
 export const LoginFormContainer = styled.form`
   display: flex;
@@ -43,7 +44,7 @@ export const UserInputContainer = styled.div`
   margin-bottom: 15px;
 `
 export const LabelElement = styled.label`
-  color: #616e7c;
+  color: ${props => (props.isDark ? ' #f4f4f4' : '#616e7c')};
   font-size: 13px;
   font-family: 'Roboto';
   font-weight: 500px;
@@ -52,12 +53,13 @@ export const LabelElement = styled.label`
 export const UserInputElement = styled.input`
   height: 30px;
   width: 90%;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #616e7c;
+
   border-radius: 5px;
   background-color: transparent;
   padding-left: 15px;
   outline: none;
-  color: #616e7c;
+  color: ${props => (props.isDark ? '#f4f4f4' : '#616e7c')};
   cursor: pointer;
   margin-top: 5px;
 `
@@ -74,7 +76,7 @@ export const CheckBoxElement = styled.input`
   cursor: pointer;
 `
 export const CheckBoxDescription = styled.p`
-  color: #0f0f0f;
+  color: ${props => (props.isDark ? ' #ffffff' : ' #0f0f0f')};
   font-size: 14px;
   font-family: 'Roboto';
   margin: 0px;

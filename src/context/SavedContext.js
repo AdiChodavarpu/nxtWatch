@@ -3,7 +3,7 @@ import React from 'react'
 const SavedContext = React.createContext({
   SavedItemList: [],
   updatedSavedList: () => {},
-  isDark: true,
+  isDark: false,
   updateTheme: () => {},
 })
 

@@ -13,35 +13,49 @@ import {
   Dot,
 } from './styledComponents'
 
-const TrendingVideoSection = props => {
-  const {EachVideo} = props
-  const {id, title, thumbnailUrl, channel, viewsCount, publishedAt} = EachVideo
+import SavedContext from '../../context/SavedContext'
 
-  const {name} = channel
+const TrendingVideoSection = props => (
+  <SavedContext.Consumer>
+    {value => {
+      const {isDark} = value
+      const {EachVideo} = props
+      const {
+        id,
+        title,
+        thumbnailUrl,
+        channel,
+        viewsCount,
+        publishedAt,
+      } = EachVideo
 
-  const dateDistance = formatDistanceToNow(new Date(publishedAt))
+      const {name} = channel
 
-  return (
-    <Navlink to={`/videos/${id}`}>
-      <TrendingItemContainer>
-        <TrendingImage src={thumbnailUrl} alt={title} />
-        <TrendingDescription>
-          <TrendingTitle>{title}</TrendingTitle>
-          <TrendingChannelName>{name}</TrendingChannelName>
-          <TrendingViewContainer>
-            <TrendingViewName>
-              {viewsCount}
-              <TrandingSpan>views</TrandingSpan>
-            </TrendingViewName>
-            <TrendingViewName>
-              <Dot />
-              {dateDistance}
-            </TrendingViewName>
-          </TrendingViewContainer>
-        </TrendingDescription>
-      </TrendingItemContainer>
-    </Navlink>
-  )
-}
+      const dateDistance = formatDistanceToNow(new Date(publishedAt))
+
+      return (
+        <Navlink to={`/videos/${id}`}>
+          <TrendingItemContainer>
+            <TrendingImage src={thumbnailUrl} alt={title} />
+            <TrendingDescription>
+              <TrendingTitle isDark={isDark}>{title}</TrendingTitle>
+              <TrendingChannelName isDark={isDark}>{name}</TrendingChannelName>
+              <TrendingViewContainer>
+                <TrendingViewName isDark={isDark}>
+                  {viewsCount}
+                  <TrandingSpan>views</TrandingSpan>
+                </TrendingViewName>
+                <TrendingViewName isDark={isDark}>
+                  <Dot />
+                  {dateDistance}
+                </TrendingViewName>
+              </TrendingViewContainer>
+            </TrendingDescription>
+          </TrendingItemContainer>
+        </Navlink>
+      )
+    }}
+  </SavedContext.Consumer>
+)
 
 export default TrendingVideoSection

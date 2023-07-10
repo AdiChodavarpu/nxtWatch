@@ -168,70 +168,84 @@ class VideoItemDetailsSection extends Component {
     )
   }
 
-  getVideoToDescriptionSection = () => {
-    const {VideoItemDetailsList, Liked, Disliked} = this.state
-    const {title, publishedAt, viewCount} = VideoItemDetailsList
-    const GivenDate = new Date(publishedAt)
+  getVideoToDescriptionSection = () => (
+    <SavedContext.Consumer>
+      {value => {
+        const {isDark} = value
+        const {VideoItemDetailsList, Liked, Disliked} = this.state
+        const {title, publishedAt, viewCount} = VideoItemDetailsList
+        const GivenDate = new Date(publishedAt)
 
-    const DatedNow = formatDistanceToNow(
-      new Date(
-        GivenDate.getFullYear(),
-        GivenDate.getMonth(),
-        GivenDate.getDate(),
-      ),
-    )
+        const DatedNow = formatDistanceToNow(
+          new Date(
+            GivenDate.getFullYear(),
+            GivenDate.getMonth(),
+            GivenDate.getDate(),
+          ),
+        )
 
-    return (
-      <VideoItemDetailsTopSection>
-        <VideoDetailsHeading>{title}</VideoDetailsHeading>
-        <VideoItemDetailsViews>
-          <ViewsContainer>
-            <VideoDetailsParagraph>{viewCount} views</VideoDetailsParagraph>
-            <VideoDetailsParagraph>
-              <DotElement />
-              {DatedNow}
-            </VideoDetailsParagraph>
-          </ViewsContainer>
+        return (
+          <VideoItemDetailsTopSection>
+            <VideoDetailsHeading isDark={isDark}>{title}</VideoDetailsHeading>
+            <VideoItemDetailsViews>
+              <ViewsContainer>
+                <VideoDetailsParagraph isDark={isDark}>
+                  {viewCount} views
+                </VideoDetailsParagraph>
+                <VideoDetailsParagraph isDark={isDark}>
+                  <DotElement />
+                  {DatedNow}
+                </VideoDetailsParagraph>
+              </ViewsContainer>
 
-          <IconsContainer>
-            <IconsItemsContainer>
-              <IconButton type="button" onClick={this.onClickLikeButton}>
-                <LikeIcon color={Liked ? '#2563eb' : ' #64748b '} />
-                <LikeDescription liked={Liked}>Like</LikeDescription>
-              </IconButton>
-            </IconsItemsContainer>
+              <IconsContainer>
+                <IconsItemsContainer>
+                  <IconButton type="button" onClick={this.onClickLikeButton}>
+                    <LikeIcon color={Liked ? '#2563eb' : ' #64748b '} />
+                    <LikeDescription liked={Liked}>Like</LikeDescription>
+                  </IconButton>
+                </IconsItemsContainer>
 
-            <IconsItemsContainer>
-              <IconButton type="button" onClick={this.onClickDislikeButton}>
-                <DisLikeIcon color={Disliked ? '#2563eb' : ' #64748b '} />
-                <DislikeDescription disliked={Disliked}>
-                  Dislike
-                </DislikeDescription>
-              </IconButton>
-            </IconsItemsContainer>
-            {this.renderSavedSection()}
-          </IconsContainer>
-        </VideoItemDetailsViews>
-      </VideoItemDetailsTopSection>
-    )
-  }
+                <IconsItemsContainer>
+                  <IconButton type="button" onClick={this.onClickDislikeButton}>
+                    <DisLikeIcon color={Disliked ? '#2563eb' : ' #64748b '} />
+                    <DislikeDescription disliked={Disliked}>
+                      Dislike
+                    </DislikeDescription>
+                  </IconButton>
+                </IconsItemsContainer>
+                {this.renderSavedSection()}
+              </IconsContainer>
+            </VideoItemDetailsViews>
+          </VideoItemDetailsTopSection>
+        )
+      }}
+    </SavedContext.Consumer>
+  )
 
-  getVideoBottomDescriptionSection = () => {
-    const {VideoItemDetailsList} = this.state
-    const {channel, description} = VideoItemDetailsList
-    const {name, profileImageUrl, subscriberCount} = channel
+  getVideoBottomDescriptionSection = () => (
+    <SavedContext.Consumer>
+      {value => {
+        const {isDark} = value
+        const {VideoItemDetailsList} = this.state
+        const {channel, description} = VideoItemDetailsList
+        const {name, profileImageUrl, subscriberCount} = channel
 
-    return (
-      <VideoDetailsBottomContainer>
-        <ProfileImage src={profileImageUrl} alt={name} />
-        <ChannelContainer>
-          <ChannelHeading>{name}</ChannelHeading>
-          <Subscribers>{subscriberCount} subscribers</Subscribers>
-          <IconDescription>{description}</IconDescription>
-        </ChannelContainer>
-      </VideoDetailsBottomContainer>
-    )
-  }
+        return (
+          <VideoDetailsBottomContainer>
+            <ProfileImage src={profileImageUrl} alt={name} />
+            <ChannelContainer>
+              <ChannelHeading isDark={isDark}>{name}</ChannelHeading>
+              <Subscribers isDark={isDark}>
+                {subscriberCount} subscribers
+              </Subscribers>
+              <IconDescription isDark={isDark}>{description}</IconDescription>
+            </ChannelContainer>
+          </VideoDetailsBottomContainer>
+        )
+      }}
+    </SavedContext.Consumer>
+  )
 
   renderVideoItemDetailsSuccessView = () => (
     <>

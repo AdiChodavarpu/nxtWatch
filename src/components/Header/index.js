@@ -1,3 +1,4 @@
+import {withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 
 import Popup from 'reactjs-popup'
@@ -36,7 +37,7 @@ import {
 
 import 'reactjs-popup/dist/index.css'
 
-const Header = () => (
+const Header = props => (
   <SavedContext.Consumer>
     {value => {
       const {isDark, updateTheme} = value
@@ -45,7 +46,12 @@ const Header = () => (
         updateTheme()
       }
 
-      const onClickConfirm = () => Cookies.remove('jwt_token')
+      const onClickConfirm = () => {
+        Cookies.remove('jwt_token')
+        const {history} = props
+        history.replace('./login')
+      }
+
       const renderPopUp = () => (
         <Popup
           className="popup-content"
@@ -169,4 +175,4 @@ const Header = () => (
   </SavedContext.Consumer>
 )
 
-export default Header
+export default withRouter(Header)

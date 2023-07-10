@@ -40,14 +40,14 @@ export const TrendingDescription = styled.div`
   padding-left: 15px;
 `
 export const TrendingTitle = styled.h1`
-  color: #231f20;
+  color: ${props => (props.isDark ? '#f4f4f4' : '#383838')};
   font-size: 20px;
   font-family: 'Roboto';
   margin: 0px;
   width: 90%;
 `
 export const TrendingChannelName = styled.p`
-  color: #606060;
+  color: ${props => (props.isDark ? ' #ebebeb' : '#606060')};
   font-size: 16px;
   font-family: 'Roboto';
   margin: 0px;

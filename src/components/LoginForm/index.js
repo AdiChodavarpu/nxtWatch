@@ -2,6 +2,8 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 
+import SavedContext from '../../context/SavedContext'
+
 import {
   LoginMainContainer,
   LoginCardContainer,
@@ -65,36 +67,50 @@ class LoginForm extends Component {
     }
   }
 
-  renderUserNameFiled = () => {
-    const {username} = this.state
-    return (
-      <UserInputContainer>
-        <LabelElement>USERNAME</LabelElement>
-        <UserInputElement
-          type="text"
-          value={username}
-          placeholder="Username"
-          onChange={this.onChangeUsername}
-        />
-      </UserInputContainer>
-    )
-  }
+  renderUserNameFiled = () => (
+    <SavedContext.Consumer>
+      {value => {
+        const {isDark} = value
 
-  renderPasswordField = () => {
-    const {password, showPassword} = this.state
-    const passwordType = showPassword ? 'text' : 'password'
-    return (
-      <UserInputContainer>
-        <LabelElement>PASSWORD</LabelElement>
-        <UserInputElement
-          type={passwordType}
-          value={password}
-          placeholder="Password"
-          onChange={this.onChangePassword}
-        />
-      </UserInputContainer>
-    )
-  }
+        const {username} = this.state
+        return (
+          <UserInputContainer>
+            <LabelElement isDark={isDark}>USERNAME</LabelElement>
+            <UserInputElement
+              isDark={isDark}
+              type="text"
+              value={username}
+              placeholder="Username"
+              onChange={this.onChangeUsername}
+            />
+          </UserInputContainer>
+        )
+      }}
+    </SavedContext.Consumer>
+  )
+
+  renderPasswordField = () => (
+    <SavedContext.Consumer>
+      {value => {
+        const {isDark} = value
+
+        const {password, showPassword} = this.state
+        const passwordType = showPassword ? 'text' : 'password'
+        return (
+          <UserInputContainer>
+            <LabelElement isDark={isDark}>PASSWORD</LabelElement>
+            <UserInputElement
+              isDark={isDark}
+              type={passwordType}
+              value={password}
+              placeholder="Password"
+              onChange={this.onChangePassword}
+            />
+          </UserInputContainer>
+        )
+      }}
+    </SavedContext.Consumer>
+  )
 
   onChangeCheckbox = () => {
     this.setState(prevValue => ({
@@ -102,19 +118,26 @@ class LoginForm extends Component {
     }))
   }
 
-  renderCheckBoxFiled = () => {
-    const {showPassword} = this.state
-    return (
-      <CheckBoxContiner>
-        <CheckBoxElement
-          type="checkbox"
-          value={showPassword}
-          onChange={this.onChangeCheckbox}
-        />
-        <CheckBoxDescription>Show Password</CheckBoxDescription>
-      </CheckBoxContiner>
-    )
-  }
+  renderCheckBoxFiled = () => (
+    <SavedContext.Consumer>
+      {value => {
+        const {isDark} = value
+        const {showPassword} = this.state
+        return (
+          <CheckBoxContiner>
+            <CheckBoxElement
+              type="checkbox"
+              value={showPassword}
+              onChange={this.onChangeCheckbox}
+            />
+            <CheckBoxDescription isDark={isDark}>
+              Show Password
+            </CheckBoxDescription>
+          </CheckBoxContiner>
+        )
+      }}
+    </SavedContext.Consumer>
+  )
 
   render() {
     const {showErrorMessage, errorMessage} = this.state
@@ -125,18 +148,29 @@ class LoginForm extends Component {
     }
 
     return (
-      <LoginMainContainer>
-        <LoginCardContainer>
-          <LoginFormContainer onSubmit={this.submitForm}>
-            <LoginLogo src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png" />{' '}
-            {this.renderUserNameFiled()}
-            {this.renderPasswordField()}
-            {this.renderCheckBoxFiled()}
-            <LoginButton type="submit">Login</LoginButton>
-            {showErrorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-          </LoginFormContainer>
-        </LoginCardContainer>
-      </LoginMainContainer>
+      <SavedContext.Consumer>
+        {value => {
+          const {isDark} = value
+          const LogoUrl = isDark
+            ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+            : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+          return (
+            <LoginMainContainer isDark={isDark}>
+              <LoginCardContainer isDark={isDark}>
+                <LoginFormContainer onSubmit={this.submitForm}>
+                  <LoginLogo src={LogoUrl} /> {this.renderUserNameFiled()}
+                  {this.renderPasswordField()}
+                  {this.renderCheckBoxFiled()}
+                  <LoginButton type="submit">Login</LoginButton>
+                  {showErrorMessage && (
+                    <ErrorMessage>{errorMessage}</ErrorMessage>
+                  )}
+                </LoginFormContainer>
+              </LoginCardContainer>
+            </LoginMainContainer>
+          )
+        }}
+      </SavedContext.Consumer>
     )
   }
 }
