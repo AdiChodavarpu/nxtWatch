@@ -148,22 +148,27 @@ class VideoItemDetailsSection extends Component {
         {value => {
           const {updatedSavedList, SavedItemList} = value
 
-          const isPresent = SavedItemList.filter(
+          const isPresent = SavedItemList.find(
             eachVideo => eachVideo.id === VideoItemDetailsList.id,
           )
 
+          const savedText = isPresent === undefined ? 'Save' : 'Saved'
+          const saveColor = isPresent === undefined ? false : {Saved}
+
           const onClickSaveButton = () => {
             this.renderOnClickSaveButton()
-            updatedSavedList({...VideoItemDetailsList, Liked, Disliked, Saved})
+            updatedSavedList({
+              ...VideoItemDetailsList,
+              isLiked: Liked,
+              isDisliked: Disliked,
+            })
           }
 
           return (
             <IconsItemsContainer>
               <IconButton type="button" onClick={onClickSaveButton}>
-                <SaveICon color={Saved ? '#2563eb' : ' #64748b '} />
-                <SaveDescription saved={Saved}>
-                  {Saved ? 'Saved' : 'Save'}
-                </SaveDescription>
+                <SaveICon color={saveColor ? '#2563eb' : ' #64748b '} />
+                <SaveDescription saved={saveColor}>{savedText}</SaveDescription>
               </IconButton>
             </IconsItemsContainer>
           )
@@ -175,7 +180,7 @@ class VideoItemDetailsSection extends Component {
   getVideoToDescriptionSection = () => (
     <SavedContext.Consumer>
       {value => {
-        const {isDark} = value
+        const {isDark, SavedItemList} = value
 
         const {VideoItemDetailsList, Liked, Disliked} = this.state
         const {title, publishedAt, viewCount} = VideoItemDetailsList
@@ -188,6 +193,20 @@ class VideoItemDetailsSection extends Component {
             GivenDate.getDate(),
           ),
         )
+
+        const isPresent = SavedItemList.find(
+          eachVideo => eachVideo.id === VideoItemDetailsList.id,
+        )
+
+        const PreviouslySaved = SavedItemList.filter(
+          eachVideo => eachVideo.id === VideoItemDetailsList.id,
+        )
+
+        const LikedColor =
+          isPresent === undefined ? Liked : PreviouslySaved[0].isLiked
+
+        const DislikedColor =
+          isPresent === undefined ? Disliked : PreviouslySaved[0].isDisliked
 
         return (
           <VideoItemDetailsTopSection>
@@ -206,15 +225,17 @@ class VideoItemDetailsSection extends Component {
               <IconsContainer>
                 <IconsItemsContainer>
                   <IconButton type="button" onClick={this.onClickLikeButton}>
-                    <LikeIcon color={Liked ? '#2563eb' : ' #64748b '} />
-                    <LikeDescription liked={Liked}>Like</LikeDescription>
+                    <LikeIcon color={LikedColor ? '#2563eb' : ' #64748b '} />
+                    <LikeDescription liked={LikedColor}>Like</LikeDescription>
                   </IconButton>
                 </IconsItemsContainer>
 
                 <IconsItemsContainer>
                   <IconButton type="button" onClick={this.onClickDislikeButton}>
-                    <DisLikeIcon color={Disliked ? '#2563eb' : ' #64748b '} />
-                    <DislikeDescription disliked={Disliked}>
+                    <DisLikeIcon
+                      color={DislikedColor ? '#2563eb' : ' #64748b '}
+                    />
+                    <DislikeDescription disliked={DislikedColor}>
                       Dislike
                     </DislikeDescription>
                   </IconButton>

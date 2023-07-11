@@ -28,6 +28,15 @@ export const SideBarListItems = styled.li`
   justify-content: flex-start;
   align-items: center;
 `
+export const ListItemButton = styled.button`
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+`
+
 export const ListCategory = styled.h1`
   font-size: 16px;
   font-family: 'Roboto';

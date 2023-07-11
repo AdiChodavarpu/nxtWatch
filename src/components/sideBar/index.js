@@ -5,6 +5,7 @@ import {
   SideBarListContainer,
   SideBarListItems,
   ListCategory,
+  ListItemButton,
   HomeIcon,
   TrendingIcon,
   GamingIcon,
@@ -26,8 +27,10 @@ const SideBar = () => (
           <SideBarListContainer>
             <NavLinks to="/">
               <SideBarListItems>
-                <HomeIcon />
-                <ListCategory isDark={isDark}>Home</ListCategory>
+                <ListItemButton type="button">
+                  <HomeIcon />
+                  <ListCategory isDark={isDark}>Home</ListCategory>
+                </ListItemButton>
               </SideBarListItems>
             </NavLinks>
             <NavLinks to="/trending">
