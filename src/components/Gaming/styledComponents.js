@@ -81,14 +81,14 @@ export const FailureImage = styled.img`
   width: 300px;
 `
 export const FailureHeading = styled.h1`
-  color: #231f20;
+  color: ${props => (!props.isDark ? '#231f20' : ' #f9f9f9')};
   font-size: 30px;
   font-family: 'Roboto';
   margin: 10px;
 `
 
 export const FailureDescription = styled.p`
-  color: #231f20;
+  color: ${props => (!props.isDark ? '#231f20' : ' #f9f9f9')};
   font-size: 18px;
   font-family: 'Roboto';
   margin: 5px;

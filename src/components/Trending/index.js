@@ -113,19 +113,36 @@ class Trending extends Component {
     </div>
   )
 
+  onClickRetry = () => {
+    this.getTrendingVideosList()
+  }
+
   renderTrendingFailureView = () => (
-    <FailureContainer>
-      <FailureImage
-        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
-        alt="failure-view-light"
-      />
-      <FailureHeading>Oops! Something Went Wrong</FailureHeading>
-      <FailureDescription>
-        We are having some trouble to complete your request.
-      </FailureDescription>
-      <FailureDescription>Please try again.</FailureDescription>
-      <RetryButton type="button">Retry</RetryButton>
-    </FailureContainer>
+    <SavedContext.Consumer>
+      {value => {
+        const {isDark} = value
+        return (
+          <FailureContainer>
+            <FailureImage
+              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
+              alt="failure-view-light"
+            />
+            <FailureHeading isDark={isDark}>
+              Oops! Something Went Wrong
+            </FailureHeading>
+            <FailureDescription isDark={isDark}>
+              We are having some trouble to complete your request.
+            </FailureDescription>
+            <FailureDescription isDark={isDark}>
+              Please try again.
+            </FailureDescription>
+            <RetryButton type="button" onClick={this.onClickRetry}>
+              Retry
+            </RetryButton>
+          </FailureContainer>
+        )
+      }}
+    </SavedContext.Consumer>
   )
 
   renderTredingVideos = () => {
