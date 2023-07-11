@@ -14,7 +14,7 @@ export const SideBarContainer = styled.div`
   width: 250px;
   background-color: ${props => (props.isDark ? '#181818' : ' #f9f9f9')};
   height: 100vh;
-  padding-left: 20px;
+
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -22,11 +22,16 @@ export const SideBarContainer = styled.div`
 export const SideBarListContainer = styled.ul`
   list-style-type: none;
   padding: 0px;
+  width: 230px;
 `
 export const SideBarListItems = styled.li`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  width: 100%;
+  padding-left: 20px;
+  background-color: ${props =>
+    props.isDark ? props.isActive && ' #313131' : props.isActive && '#e2e8f0'};
 `
 export const ListItemButton = styled.button`
   background-color: transparent;
@@ -35,6 +40,7 @@ export const ListItemButton = styled.button`
   justify-content: flex-start;
   align-items: center;
   padding: 0px;
+  cursor: pointer;
 `
 
 export const ListCategory = styled.h1`
@@ -54,7 +60,7 @@ export const GamingIcon = styled(SiYoutubegaming)`
   color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
 export const SavedIcon = styled(MdPlaylistAdd)`
-  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
+  color: ${props => (props.isdark ? ' #f9f9f9' : '#181818')};
 `
 
 export const ContactContainer = styled.div`
@@ -63,6 +69,7 @@ export const ContactContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 10px;
+  padding-left: 20px;
 `
 export const ContactUsHeading = styled.h1`
   color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
