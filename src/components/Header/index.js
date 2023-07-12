@@ -1,9 +1,8 @@
 import {withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 
-import Popup from 'reactjs-popup'
-
 import SavedContext from '../../context/SavedContext'
+import 'reactjs-popup/dist/index.css'
 
 import SideBarSD from '../SideBarSD'
 import './index.css'
@@ -33,9 +32,9 @@ import {
   CloseButton,
   PopupItemsContainer,
   ReactPopContainer,
+  LogoutPopup,
+  HamburgerPopup,
 } from './styledComponents'
-
-import 'reactjs-popup/dist/index.css'
 
 const Header = props => (
   <SavedContext.Consumer>
@@ -53,14 +52,14 @@ const Header = props => (
       }
 
       const renderPopUp = () => (
-        <Popup
-          className="popup-content"
+        <LogoutPopup
+          isDark={isDark}
           modal
           trigger={<LogoutButton type="button">Logout</LogoutButton>}
         >
           {close => (
             <>
-              <PopDisplayContainer>
+              <PopDisplayContainer isDark={isDark}>
                 <PopUpHeading>Are you sure you want to logout?</PopUpHeading>
                 <PopUpButtonsContainer>
                   <CancelButton type="button" onClick={() => close()}>
@@ -73,13 +72,13 @@ const Header = props => (
               </PopDisplayContainer>
             </>
           )}
-        </Popup>
+        </LogoutPopup>
       )
 
       const renderSmallDevicePopUp = () => (
         <>
-          <Popup
-            className="popup-contents"
+          <LogoutPopup
+            isDark={isDark}
             modal
             trigger={
               <ReactPopContainer>
@@ -90,7 +89,7 @@ const Header = props => (
             }
           >
             {close => (
-              <PopDisplayContainer>
+              <PopDisplayContainer isDark={isDark}>
                 <PopUpHeading>Are you sure you want to logout?</PopUpHeading>
                 <PopUpButtonsContainer>
                   <CancelButton type="button" onClick={() => close()}>
@@ -102,22 +101,23 @@ const Header = props => (
                 </PopUpButtonsContainer>
               </PopDisplayContainer>
             )}
-          </Popup>
+          </LogoutPopup>
         </>
       )
 
       const HamburgerIconPopUp = () => (
-        <Popup
-          className="popup-content"
+        <HamburgerPopup
+          isDark={isDark}
           modal
           trigger={
             <HamButton type="button" isDark={isDark}>
               <HamIcon />
             </HamButton>
           }
+          className="hamburger-popup"
         >
           {close => (
-            <PopupItemsContainer>
+            <PopupItemsContainer isDark={isDark}>
               <CloseButton type="button" onClick={() => close()}>
                 <CloseIcon />
               </CloseButton>
@@ -126,7 +126,7 @@ const Header = props => (
               </HamItemsContainer>
             </PopupItemsContainer>
           )}
-        </Popup>
+        </HamburgerPopup>
       )
 
       const ThemeLogo = isDark

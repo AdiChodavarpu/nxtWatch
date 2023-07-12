@@ -3,6 +3,19 @@ import {HiMoon} from 'react-icons/hi'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {FiLogOut, FiSun} from 'react-icons/fi'
 import {IoMdClose} from 'react-icons/io'
+import Popup from 'reactjs-popup'
+
+export const LogoutPopup = styled(Popup)`
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: ${props => (props.isDark ? '#212121' : '#ffffff')};
+`
+
+export const HamburgerPopup = styled(Popup)`
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: ${props => (props.isDark ? '#212121' : '#ffffff')};
+`
 
 export const NavContainer = styled.nav`
   height: 80px;
@@ -72,22 +85,19 @@ export const LogoutButton = styled.button`
 `
 
 export const PopDisplayContainer = styled.div`
-  height: 160px;
-  width: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: ${props => (props.isDark ? '#212121' : '#ffffff')}
   border-radius: 10px;
 
   @media screen and (max-width: 767px) {
-    min-height: 180px;
-    min-width: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: ${props => (props.isDark ? '#212121' : '#ffffff')}
   }
 `
 export const PopUpHeading = styled.h1`
@@ -160,17 +170,14 @@ export const PopupItemsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
-  padding: 20px;
 `
 
 export const HamItemsContainer = styled.div`
-  height: 100vh;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: #ffffff;
 `
 export const CloseIcon = styled(IoMdClose)`
   height: 25px;
