@@ -121,7 +121,7 @@ const Header = props => (
               <CloseButton type="button" onClick={() => close()}>
                 <CloseIcon />
               </CloseButton>
-              <HamItemsContainer>
+              <HamItemsContainer isDark={isDark}>
                 <SideBarSD />
               </HamItemsContainer>
             </PopupItemsContainer>

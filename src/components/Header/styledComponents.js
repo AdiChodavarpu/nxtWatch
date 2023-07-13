@@ -89,7 +89,7 @@ export const PopDisplayContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${props => (props.isDark ? '#212121' : '#ffffff')}
+  background-color: ${props => (props.isDark ? '#212121' : '#ffffff')};
   border-radius: 10px;
 
   @media screen and (max-width: 767px) {
@@ -97,7 +97,8 @@ export const PopDisplayContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${props => (props.isDark ? '#212121' : '#ffffff')}
+    background-color: #ffffff30;
+    max-width: 290px;
   }
 `
 export const PopUpHeading = styled.h1`
@@ -170,14 +171,18 @@ export const PopupItemsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: 100%;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
 
 export const HamItemsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-color: #ffffff;
+  height: 100vh;
+  width: 100%;
+  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
 export const CloseIcon = styled(IoMdClose)`
   height: 25px;
@@ -187,6 +192,7 @@ export const CloseButton = styled.button`
   background-color: transparent;
   border: none;
   align-self: flex-end;
+  margin-top: 20px;
 `
 export const ReactPopContainer = styled.div`
   display: flex;
