@@ -51,83 +51,96 @@ const Header = props => (
         history.replace('./login')
       }
 
-      const renderPopUp = () => (
-        <LogoutPopup
-          isDark={isDark}
-          modal
-          trigger={<LogoutButton type="button">Logout</LogoutButton>}
-        >
-          {close => (
-            <>
-              <PopDisplayContainer isDark={isDark}>
-                <PopUpHeading>Are you sure you want to logout?</PopUpHeading>
-                <PopUpButtonsContainer>
-                  <CancelButton type="button" onClick={() => close()}>
-                    Cancel
-                  </CancelButton>
-                  <ConfirmButton type="button" onClick={onClickConfirm}>
-                    Confirm
-                  </ConfirmButton>
-                </PopUpButtonsContainer>
-              </PopDisplayContainer>
-            </>
-          )}
-        </LogoutPopup>
-      )
-
-      const renderSmallDevicePopUp = () => (
-        <>
+      const renderPopUp = () => {
+        const logoutPopUp = isDark
+          ? 'logout-large-dark-popup'
+          : 'logout-large-light-popup'
+        return (
           <LogoutPopup
-            isDark={isDark}
+            modal
+            trigger={<LogoutButton type="button">Logout</LogoutButton>}
+          >
+            {close => (
+              <>
+                <PopDisplayContainer className={logoutPopUp} isDark={isDark}>
+                  <PopUpHeading isDark={isDark}>
+                    Are you sure you want to logout?
+                  </PopUpHeading>
+                  <PopUpButtonsContainer>
+                    <CancelButton type="button" onClick={() => close()}>
+                      Cancel
+                    </CancelButton>
+                    <ConfirmButton type="button" onClick={onClickConfirm}>
+                      Confirm
+                    </ConfirmButton>
+                  </PopUpButtonsContainer>
+                </PopDisplayContainer>
+              </>
+            )}
+          </LogoutPopup>
+        )
+      }
+
+      const renderSmallDevicePopUp = () => {
+        const logoutPop = isDark
+          ? 'logout-small-dark-popup'
+          : 'logout-small-dark-popup'
+        return (
+          <>
+            <LogoutPopup
+              modal
+              trigger={
+                <ReactPopContainer>
+                  <LogoutBtn type="button" isDark={isDark}>
+                    <LogoutIcon />
+                  </LogoutBtn>
+                </ReactPopContainer>
+              }
+            >
+              {close => (
+                <PopDisplayContainer className={logoutPop}>
+                  <PopUpHeading isDark={isDark}>
+                    Are you sure you want to logout?
+                  </PopUpHeading>
+                  <PopUpButtonsContainer>
+                    <CancelButton type="button" onClick={() => close()}>
+                      Cancel
+                    </CancelButton>
+                    <ConfirmButton type="button" onClick={onClickConfirm}>
+                      Confirm
+                    </ConfirmButton>
+                  </PopUpButtonsContainer>
+                </PopDisplayContainer>
+              )}
+            </LogoutPopup>
+          </>
+        )
+      }
+
+      const HamburgerIconPopUp = () => {
+        const hamClassName = isDark ? 'hamburger-popup-dark' : 'hamburger-popup'
+        return (
+          <HamburgerPopup
             modal
             trigger={
-              <ReactPopContainer>
-                <LogoutBtn type="button" isDark={isDark}>
-                  <LogoutIcon />
-                </LogoutBtn>
-              </ReactPopContainer>
+              <HamButton type="button" isDark={isDark}>
+                <HamIcon />
+              </HamButton>
             }
           >
             {close => (
-              <PopDisplayContainer isDark={isDark}>
-                <PopUpHeading>Are you sure you want to logout?</PopUpHeading>
-                <PopUpButtonsContainer>
-                  <CancelButton type="button" onClick={() => close()}>
-                    Cancel
-                  </CancelButton>
-                  <ConfirmButton type="button" onClick={onClickConfirm}>
-                    Confirm
-                  </ConfirmButton>
-                </PopUpButtonsContainer>
-              </PopDisplayContainer>
+              <PopupItemsContainer className={hamClassName} isDark={isDark}>
+                <CloseButton type="button" onClick={() => close()}>
+                  <CloseIcon />
+                </CloseButton>
+                <HamItemsContainer isDark={isDark}>
+                  <SideBarSD />
+                </HamItemsContainer>
+              </PopupItemsContainer>
             )}
-          </LogoutPopup>
-        </>
-      )
-
-      const HamburgerIconPopUp = () => (
-        <HamburgerPopup
-          isDark={isDark}
-          modal
-          trigger={
-            <HamButton type="button" isDark={isDark}>
-              <HamIcon />
-            </HamButton>
-          }
-          className="hamburger-popup"
-        >
-          {close => (
-            <PopupItemsContainer isDark={isDark}>
-              <CloseButton type="button" onClick={() => close()}>
-                <CloseIcon />
-              </CloseButton>
-              <HamItemsContainer isDark={isDark}>
-                <SideBarSD />
-              </HamItemsContainer>
-            </PopupItemsContainer>
-          )}
-        </HamburgerPopup>
-      )
+          </HamburgerPopup>
+        )
+      }
 
       const ThemeLogo = isDark
         ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'

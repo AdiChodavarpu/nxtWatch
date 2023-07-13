@@ -89,7 +89,10 @@ export const PopDisplayContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${props => (props.isDark ? '#212121' : '#ffffff')};
+  margin: 0px;
+  padding: 0px;
+  border-width: 0px;
+
   border-radius: 10px;
 
   @media screen and (max-width: 767px) {
@@ -97,12 +100,15 @@ export const PopDisplayContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff30;
+    margin: 0px;
+    padding: 0px;
+    border-width: 0px;
+
     max-width: 290px;
   }
 `
 export const PopUpHeading = styled.h1`
-  color: #606060;
+  color: ${props => (props.isDark ? '#ebebeb' : '#181818')};
   font-size: 16px;
   font-family: 'Roboto';
 `
@@ -173,7 +179,6 @@ export const PopupItemsContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100%;
-  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
 
 export const HamItemsContainer = styled.div`
@@ -182,7 +187,6 @@ export const HamItemsContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100%;
-  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
 export const CloseIcon = styled(IoMdClose)`
   height: 25px;

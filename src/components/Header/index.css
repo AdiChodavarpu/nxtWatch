@@ -3,14 +3,49 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
-  width: 350px;
-  border-radius: 5px;
+  height: 200px;
+  width: 300px;
+
   max-height: 100vh;
   max-width: 100%;
+  background-color: #ffffff;
+  border-width: 0px;
 }
 
 .hamburger-popup {
-  min-height: 100vh;
-  min-width: 100%;
+  height: 50px;
+  min-width: 350px;
+  background-color: #ffffff;
+}
+
+.hamburger-popup-dark {
+  height: 50px;
+  min-width: 350px;
+  background-color: #313131;
+}
+
+.logout-small-dark-popup {
+  background-color: #231f20;
+
+  min-height: 220px;
+  min-width: 320px;
+}
+
+.logout-small-light-popup {
+  background-color: #f9f9f9;
+
+  min-height: 220px;
+  min-width: 320px;
+}
+
+.logout-large-dark-popup {
+  min-height: 210px;
+  width: 390px;
+  background-color: #231f20;
+}
+
+.logout-large-light-popup {
+  min-height: 210px;
+  width: 390px;
+  background-color: #f9f9f9;
 }

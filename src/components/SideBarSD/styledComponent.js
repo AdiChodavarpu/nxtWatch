@@ -7,8 +7,6 @@ export const SideBarContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  background-color: #ffffff;
 `
 export const SideBarListContainer = styled.ul`
   list-style-type: none;
