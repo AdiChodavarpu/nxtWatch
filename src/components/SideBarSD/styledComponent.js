@@ -7,18 +7,32 @@ export const SideBarContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `
 export const SideBarListContainer = styled.ul`
   list-style-type: none;
   padding: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 export const SideBarListItems = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props =>
+    props.isDark ? props.isActive && ' #383838' : props.isActive && '#ebebeb'};
+`
+export const SideBarListItemsContainer = styled.div`
+  width: 130px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 `
+
 export const ListCategory = styled.h1`
-  color: #231f20;
+  color: ${props => (props.isDark ? '#e2e8f0' : '#231f20')};
   font-size: 16px;
   font-family: 'Roboto';
   margin-left: 15px;
