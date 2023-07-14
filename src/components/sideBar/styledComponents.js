@@ -1,5 +1,3 @@
-import {Link} from 'react-router-dom'
-
 import styled from 'styled-components'
 
 import {AiTwotoneHome, AiFillFire} from 'react-icons/ai'
@@ -99,7 +97,4 @@ export const ContactUsDescription = styled.p`
   font-size: 16px;
   font-family: 'Roboto';
   font-weight: 500;
-`
-export const NavLinks = styled(Link)`
-  text-decoration: none;
 `

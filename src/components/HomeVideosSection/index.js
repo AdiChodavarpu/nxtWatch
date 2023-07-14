@@ -51,7 +51,9 @@ const HomeVideosSection = props => (
             <VideoDetailsContainer>
               <ProfileLogo src={profileImageUrl} alt="channel logo" />
               <VideoDescriptionDetailsContainer>
-                <VideoTitle isDark={isDark}>{title}</VideoTitle>
+                <VideoTitle as="p" isDark={isDark}>
+                  {title}
+                </VideoTitle>
                 <ChannelName isDark={isDark}>{name}</ChannelName>
                 <ViewsContainer>
                   <ViewCount isDark={isDark}>

@@ -17,8 +17,10 @@ const GamingVideosSection = props => (
       return (
         <Navlink to={`/videos/${id}`}>
           <GamingListItemContainer>
-            <GamingImage src={thumbnailUrl} alt={title} />
-            <GamingHeading isDark={isDark}> {title}</GamingHeading>
+            <GamingImage src={thumbnailUrl} alt="video thumbnail" />
+            <GamingHeading as="p" isDark={isDark}>
+              {title}
+            </GamingHeading>
             <GamingViews isDark={isDark}>
               {viewCount} Watching Worldwide
             </GamingViews>

@@ -148,7 +148,9 @@ class Gaming extends Component {
             <GamingIconContaier isDark={isDark}>
               <GamingIcon />
             </GamingIconContaier>
-            <GamingHeading isDark={isDark}>Gaming</GamingHeading>
+            <GamingHeading as="h1" isDark={isDark}>
+              Gaming
+            </GamingHeading>
           </GamingBannerContainer>
         )
       }}

@@ -1,9 +1,10 @@
-import {withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {AiTwotoneHome, AiFillFire} from 'react-icons/ai'
 import {SiYoutubegaming} from 'react-icons/si'
 import {MdPlaylistAdd} from 'react-icons/md'
 
 import SavedContext from '../../context/SavedContext'
+import './index.css'
 
 import {
   SideBarContainer,
@@ -11,7 +12,6 @@ import {
   SideBarListItems,
   SideBarListItemsContainer,
   ListCategory,
-  NavLinks,
 } from './styledComponent'
 
 const SideBarSD = props => {
@@ -26,15 +26,15 @@ const SideBarSD = props => {
         return (
           <SideBarContainer>
             <SideBarListContainer>
-              <NavLinks to="/">
+              <Link to="/" className="nav-link">
                 <SideBarListItems isDark={isDark} isActive={pathname === '/'}>
                   <SideBarListItemsContainer>
                     <AiTwotoneHome />
                     <ListCategory isDark={isDark}>Home</ListCategory>
                   </SideBarListItemsContainer>
                 </SideBarListItems>
-              </NavLinks>
-              <NavLinks to="/trending">
+              </Link>
+              <Link to="/trending" className="nav-link">
                 <SideBarListItems
                   isDark={isDark}
                   isActive={pathname === '/trending'}
@@ -44,8 +44,8 @@ const SideBarSD = props => {
                     <ListCategory isDark={isDark}>Trending</ListCategory>
                   </SideBarListItemsContainer>
                 </SideBarListItems>
-              </NavLinks>
-              <NavLinks to="/gaming">
+              </Link>
+              <Link to="/gaming" className="nav-link">
                 <SideBarListItems
                   isDark={isDark}
                   isActive={pathname === '/gaming'}
@@ -55,8 +55,8 @@ const SideBarSD = props => {
                     <ListCategory isDark={isDark}>Gaming</ListCategory>
                   </SideBarListItemsContainer>
                 </SideBarListItems>
-              </NavLinks>
-              <NavLinks to="/saved-videos">
+              </Link>
+              <Link to="/saved-videos" className="nav-link">
                 <SideBarListItems
                   isDark={isDark}
                   isActive={pathname === '/saved-videos'}
@@ -66,7 +66,7 @@ const SideBarSD = props => {
                     <ListCategory isDark={isDark}>Saved videos</ListCategory>
                   </SideBarListItemsContainer>
                 </SideBarListItems>
-              </NavLinks>
+              </Link>
             </SideBarListContainer>
           </SideBarContainer>
         )

@@ -1,6 +1,7 @@
 import {Component} from 'react'
-import {withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import SavedContext from '../../context/SavedContext'
+import './index.css'
 
 import {
   SideBarContainer,
@@ -17,7 +18,6 @@ import {
   SocialMediaContainer,
   SocialMediaSites,
   ContactUsDescription,
-  NavLinks,
 } from './styledComponents'
 
 class SideBar extends Component {
@@ -33,7 +33,7 @@ class SideBar extends Component {
           return (
             <SideBarContainer isDark={isDark}>
               <SideBarListContainer>
-                <NavLinks to="/">
+                <Link to="/" className="nav-link">
                   <SideBarListItems isDark={isDark} isActive={pathname === '/'}>
                     <ListItemButton type="button">
                       <HomeIcon />
@@ -41,8 +41,8 @@ class SideBar extends Component {
                       <ListCategory isDark={isDark}>Home</ListCategory>
                     </ListItemButton>
                   </SideBarListItems>
-                </NavLinks>
-                <NavLinks to="/trending">
+                </Link>
+                <Link to="/trending" className="nav-link">
                   <SideBarListItems
                     isDark={isDark}
                     isActive={pathname === '/trending'}
@@ -52,8 +52,8 @@ class SideBar extends Component {
                       <ListCategory isDark={isDark}>Trending</ListCategory>
                     </ListItemButton>
                   </SideBarListItems>
-                </NavLinks>
-                <NavLinks to="/gaming">
+                </Link>
+                <Link to="/gaming" className="nav-link">
                   <SideBarListItems
                     isDark={isDark}
                     isActive={pathname === '/gaming'}
@@ -63,8 +63,8 @@ class SideBar extends Component {
                       <ListCategory isDark={isDark}>Gaming</ListCategory>
                     </ListItemButton>
                   </SideBarListItems>
-                </NavLinks>
-                <NavLinks to="/saved-videos">
+                </Link>
+                <Link to="/saved-videos" className="nav-link">
                   <SideBarListItems
                     isDark={isDark}
                     isActive={pathname === '/saved-videos'}
@@ -74,10 +74,12 @@ class SideBar extends Component {
                       <ListCategory isDark={isDark}>Saved videos</ListCategory>
                     </ListItemButton>
                   </SideBarListItems>
-                </NavLinks>
+                </Link>
               </SideBarListContainer>
               <ContactContainer>
-                <ContactUsHeading isDark={isDark}>CONTACT US</ContactUsHeading>
+                <ContactUsHeading as="p" isDark={isDark}>
+                  CONTACT US
+                </ContactUsHeading>
                 <SocialMediaContainer>
                   <SocialMediaSites
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"

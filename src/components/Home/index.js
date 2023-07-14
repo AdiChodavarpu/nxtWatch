@@ -190,17 +190,16 @@ class Home extends Component {
           <FailureContainer>
             <FailureImage
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
-              alt="failure-view-light"
+              alt="failure view"
             />
-            <FailureHeading isDark={isDark}>
+            <FailureHeading as="p" isDark={isDark}>
               Oops! Something Went Wrong
             </FailureHeading>
             <FailureDescription isDark={isDark}>
-              We are having some trouble to complete your request.
+              We are having some trouble to complete your request. Please try
+              again.
             </FailureDescription>
-            <FailureDescription isDark={isDark}>
-              Please try again.
-            </FailureDescription>
+
             <RetryButton type="button" onClick={this.onClickRetry}>
               Retry
             </RetryButton>

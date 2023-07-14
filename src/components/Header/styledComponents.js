@@ -17,14 +17,32 @@ export const HamburgerPopup = styled(Popup)`
   background-color: ${props => (props.isDark ? '#212121' : '#ffffff')};
 `
 
-export const NavContainer = styled.nav`
+export const NavLargeContainer = styled.nav`
   height: 80px;
   width: 100%;
   background-color: ${props => (props.isDark ? '#181818' : ' #f9f9f9')};
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 767px) {
+    display: none;
+    background-color: ${props => (props.isDark ? '#181818' : ' #f9f9f9')};
+  }
 `
+
+export const NavSmallContainer = styled.nav`
+  height: 80px;
+  width: 100%;
+  background-color: ${props => (props.isDark ? '#181818' : ' #f9f9f9')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 767px) {
+    display: none;
+    background-color: ${props => (props.isDark ? '#181818' : ' #f9f9f9')};
+  }
+`
+
 export const NavItemsContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -36,7 +54,7 @@ export const WebSiteLogo = styled.img`
   height: 35px;
   width: 135px;
 `
-export const NavOptionsContainer = styled.div`
+export const NavOptionsContainer = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,7 +158,7 @@ export const ConfirmButton = styled.button`
   cursor: pointer;
 `
 
-export const NavOptionsSmallDevicesContainer = styled.div`
+export const NavOptionsSmallDevicesContainer = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;

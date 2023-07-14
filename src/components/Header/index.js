@@ -8,7 +8,8 @@ import SideBarSD from '../SideBarSD'
 import './index.css'
 
 import {
-  NavContainer,
+  NavLargeContainer,
+  NavSmallContainer,
   NavItemsContainer,
   WebSiteLogo,
   NavOptionsContainer,
@@ -48,7 +49,7 @@ const Header = props => (
       const onClickConfirm = () => {
         Cookies.remove('jwt_token')
         const {history} = props
-        history.replace('./login')
+        history.replace('/login')
       }
 
       const renderPopUp = () => {
@@ -63,8 +64,8 @@ const Header = props => (
             {close => (
               <>
                 <PopDisplayContainer className={logoutPopUp} isDark={isDark}>
-                  <PopUpHeading isDark={isDark}>
-                    Are you sure you want to logout?
+                  <PopUpHeading as="p" isDark={isDark}>
+                    Are you sure, you want to logout?
                   </PopUpHeading>
                   <PopUpButtonsContainer>
                     <CancelButton type="button" onClick={() => close()}>
@@ -99,8 +100,8 @@ const Header = props => (
             >
               {close => (
                 <PopDisplayContainer className={logoutPop}>
-                  <PopUpHeading isDark={isDark}>
-                    Are you sure you want to logout?
+                  <PopUpHeading as="p" isDark={isDark}>
+                    Are you sure, you want to logout?
                   </PopUpHeading>
                   <PopUpButtonsContainer>
                     <CancelButton type="button" onClick={() => close()}>
@@ -147,42 +148,52 @@ const Header = props => (
         : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
       return (
-        <NavContainer isDark={isDark}>
-          <NavItemsContainer>
-            <a href="/">
-              <WebSiteLogo src={ThemeLogo} alt="website logo" />
-            </a>
+        <>
+          <NavLargeContainer isDark={isDark}>
+            <NavItemsContainer>
+              <a href="/">
+                <WebSiteLogo src={ThemeLogo} alt="website logo" />
+              </a>
 
-            <NavOptionsContainer>
-              <MoonButton
-                data-testid="theme"
-                type="button"
-                isDark={isDark}
-                onClick={UpdatethemeLogo}
-              >
-                {isDark ? <LightICon /> : <MoonICon />}
-              </MoonButton>
-              <ProfileImage
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
-                alt="profile"
-              />
-              {renderPopUp()}
-            </NavOptionsContainer>
+              <NavOptionsContainer>
+                <MoonButton
+                  data-testid="theme"
+                  type="button"
+                  isDark={isDark}
+                  onClick={UpdatethemeLogo}
+                >
+                  {isDark ? <LightICon /> : <MoonICon />}
+                </MoonButton>
+                <ProfileImage
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
+                  alt="profile"
+                />
+                {renderPopUp()}
+              </NavOptionsContainer>
+            </NavItemsContainer>
+          </NavLargeContainer>
 
-            <NavOptionsSmallDevicesContainer>
-              <MoonButton
-                data-testid="theme"
-                type="button"
-                isDark={isDark}
-                onClick={UpdatethemeLogo}
-              >
-                {isDark ? <LightICon /> : <MoonICon />}
-              </MoonButton>
-              {HamburgerIconPopUp()}
-              {renderSmallDevicePopUp()}
-            </NavOptionsSmallDevicesContainer>
-          </NavItemsContainer>
-        </NavContainer>
+          <NavSmallContainer isDark={isDark}>
+            <NavItemsContainer>
+              <a href="/">
+                <WebSiteLogo src={ThemeLogo} alt="website logo" />
+              </a>
+
+              <NavOptionsSmallDevicesContainer>
+                <MoonButton
+                  data-testid="theme"
+                  type="button"
+                  isDark={isDark}
+                  onClick={UpdatethemeLogo}
+                >
+                  {isDark ? <LightICon /> : <MoonICon />}
+                </MoonButton>
+                {HamburgerIconPopUp()}
+                {renderSmallDevicePopUp()}
+              </NavOptionsSmallDevicesContainer>
+            </NavItemsContainer>
+          </NavSmallContainer>
+        </>
       )
     }}
   </SavedContext.Consumer>

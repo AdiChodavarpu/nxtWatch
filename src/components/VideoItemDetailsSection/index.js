@@ -210,7 +210,9 @@ class VideoItemDetailsSection extends Component {
 
         return (
           <VideoItemDetailsTopSection>
-            <VideoDetailsHeading isDark={isDark}>{title}</VideoDetailsHeading>
+            <VideoDetailsHeading as="p" isDark={isDark}>
+              {title}
+            </VideoDetailsHeading>
             <VideoItemDetailsViews>
               <ViewsContainer>
                 <VideoDetailsParagraph isDark={isDark}>
@@ -289,6 +291,10 @@ class VideoItemDetailsSection extends Component {
     </div>
   )
 
+  onClickRetry = () => {
+    this.getVideoItemDetails()
+  }
+
   renderVideoItemDetailsFailureView = () => (
     <FailureContainer>
       <FailureImage
@@ -297,10 +303,12 @@ class VideoItemDetailsSection extends Component {
       />
       <FailureHeading>Oops! Something Went Wrong</FailureHeading>
       <FailureDescription>
-        We are having some trouble to complete your request.
+        We are having some trouble to complete your request. Please try again.
       </FailureDescription>
-      <FailureDescription>Please try again.</FailureDescription>
-      <RetryButton type="button">Retry</RetryButton>
+
+      <RetryButton type="button" onClick={this.onClickRetry}>
+        Retry
+      </RetryButton>
     </FailureContainer>
   )
 
