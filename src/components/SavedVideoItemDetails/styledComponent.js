@@ -45,12 +45,14 @@ export const SavedDescriptionContainer = styled.div`
     padding-top: 20px;
   }
 `
-export const SavedItemHeading = styled.h1`
+export const SavedItemHeading = styled.p`
   color: ${props => (props.isDark ? '#ebebeb' : '#231f20')};
   font-size: 28px;
   font-family: 'Roboto';
   margin: 0px;
   width: 82%;
+  font-weight: 500;
+
   @media screen and (max-width: 767px) {
     font-size: 21px;
     width: 100%;

@@ -125,7 +125,7 @@ class Trending extends Component {
           <FailureContainer>
             <FailureImage
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
-              alt="failure-view-light"
+              alt="failure view"
             />
             <FailureHeading isDark={isDark}>
               Oops! Something Went Wrong

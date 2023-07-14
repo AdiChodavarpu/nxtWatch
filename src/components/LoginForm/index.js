@@ -75,8 +75,11 @@ class LoginForm extends Component {
         const {username} = this.state
         return (
           <UserInputContainer>
-            <LabelElement isDark={isDark}>USERNAME</LabelElement>
+            <LabelElement htmlFor="userInput" isDark={isDark}>
+              USERNAME
+            </LabelElement>
             <UserInputElement
+              id="userInput"
               isDark={isDark}
               type="text"
               value={username}
@@ -98,8 +101,11 @@ class LoginForm extends Component {
         const passwordType = showPassword ? 'text' : 'password'
         return (
           <UserInputContainer>
-            <LabelElement isDark={isDark}>PASSWORD</LabelElement>
+            <LabelElement htmlFor="userPasssword" isDark={isDark}>
+              PASSWORD
+            </LabelElement>
             <UserInputElement
+              id="userPasssword"
               isDark={isDark}
               type={passwordType}
               value={password}
@@ -158,7 +164,8 @@ class LoginForm extends Component {
             <LoginMainContainer isDark={isDark}>
               <LoginCardContainer isDark={isDark}>
                 <LoginFormContainer onSubmit={this.submitForm}>
-                  <LoginLogo src={LogoUrl} /> {this.renderUserNameFiled()}
+                  <LoginLogo src={LogoUrl} alt="website logo" />
+                  {this.renderUserNameFiled()}
                   {this.renderPasswordField()}
                   {this.renderCheckBoxFiled()}
                   <LoginButton type="submit">Login</LoginButton>

@@ -259,7 +259,7 @@ class VideoItemDetailsSection extends Component {
 
         return (
           <VideoDetailsBottomContainer>
-            <ProfileImage src={profileImageUrl} alt={name} />
+            <ProfileImage src={profileImageUrl} alt="channel logo" />
             <ChannelContainer>
               <ChannelHeading isDark={isDark}>{name}</ChannelHeading>
               <Subscribers isDark={isDark}>

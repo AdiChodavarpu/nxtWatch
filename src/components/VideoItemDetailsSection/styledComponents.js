@@ -172,7 +172,7 @@ export const ChannelContainer = styled.div`
   width: 100%;
   padding: 15px;
 `
-export const ChannelHeading = styled.h1`
+export const ChannelHeading = styled.p`
   color: ${props => (props.isDark ? '#f4f4f4' : '#212121')};
   font-size: 18px;
   font-family: 'Roboto';

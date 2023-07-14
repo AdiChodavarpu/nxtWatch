@@ -84,7 +84,7 @@ const Header = props => (
       const renderSmallDevicePopUp = () => {
         const logoutPop = isDark
           ? 'logout-small-dark-popup'
-          : 'logout-small-dark-popup'
+          : 'logout-small-light-popup'
         return (
           <>
             <LogoutPopup
@@ -155,10 +155,10 @@ const Header = props => (
 
             <NavOptionsContainer>
               <MoonButton
+                data-testid="theme"
                 type="button"
                 isDark={isDark}
                 onClick={UpdatethemeLogo}
-                data-testid="theme"
               >
                 {isDark ? <LightICon /> : <MoonICon />}
               </MoonButton>

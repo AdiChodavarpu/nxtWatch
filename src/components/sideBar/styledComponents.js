@@ -51,16 +51,23 @@ export const ListCategory = styled.h1`
 `
 
 export const HomeIcon = styled(AiTwotoneHome)`
-  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
+  color: red;
+  transform: scale(2);
+  margin: 5%;
 `
 export const TrendingIcon = styled(AiFillFire)`
-  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
+  color: red;
+  transform: scale(3);
+  margin: 5%;
 `
 export const GamingIcon = styled(SiYoutubegaming)`
-  color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
+  color: red;
+  transform: scale(3);
+  margin: 5%;
 `
 export const SavedIcon = styled(MdPlaylistAdd)`
-  color: ${props => (props.isdark ? ' #f9f9f9' : '#181818')};
+  color: red;
+  transform: scale(2);
 `
 
 export const ContactContainer = styled.div`
@@ -71,10 +78,11 @@ export const ContactContainer = styled.div`
   margin-bottom: 10px;
   padding-left: 20px;
 `
-export const ContactUsHeading = styled.h1`
+export const ContactUsHeading = styled.p`
   color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
   font-size: 16px;
   font-family: 'Roboto';
+  font-weight: 600;
 `
 export const SocialMediaContainer = styled.div`
   display: flex;

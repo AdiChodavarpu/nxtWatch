@@ -166,7 +166,9 @@ class Home extends Component {
       <NosearchDescription>
         Try different key words or remove search filter
       </NosearchDescription>
-      <RetryButton type="button">Retry</RetryButton>
+      <RetryButton type="button" onClick={this.onClickRetry}>
+        Retry
+      </RetryButton>
     </NoSearchContainer>
   )
 

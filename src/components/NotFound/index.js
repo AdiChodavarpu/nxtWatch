@@ -24,10 +24,10 @@ const NotFound = () => (
 
       const renderNotFound = () => (
         <NotFoundMainContainer>
-          <NotFoundImage src={NotFoundImages} alt="no saved videos" />
+          <NotFoundImage src={NotFoundImages} alt="not found" />
           <NotFoundHeading isDark={isDark}>Page Not Found</NotFoundHeading>
           <NotFoundDescription isDark={isDark}>
-            We are sorry,the page you requested could not be found
+            we are sorry, the page you requested could not be found.
           </NotFoundDescription>
         </NotFoundMainContainer>
       )

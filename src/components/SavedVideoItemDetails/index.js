@@ -34,7 +34,7 @@ const SavedVideoItemDetails = props => (
       return (
         <NavLinkElement to={`/videos/${id}`}>
           <SavedItemContainer>
-            <SavedImage src={thumbnailUrl} alt={title} />
+            <SavedImage src={thumbnailUrl} alt="video thumbnail" />
             <SavedDescriptionContainer>
               <SavedItemHeading isDark={isDark}>{title}</SavedItemHeading>
               <SavedItemDescription isDark={isDark}>

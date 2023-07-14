@@ -39,12 +39,13 @@ export const TrendingDescription = styled.div`
   align-items: flex-start;
   padding-left: 15px;
 `
-export const TrendingTitle = styled.h1`
+export const TrendingTitle = styled.p`
   color: ${props => (props.isDark ? '#f4f4f4' : '#383838')};
   font-size: 20px;
   font-family: 'Roboto';
   margin: 0px;
   width: 90%;
+  font-weight: 500;
 `
 export const TrendingChannelName = styled.p`
   color: ${props => (props.isDark ? ' #ebebeb' : '#606060')};

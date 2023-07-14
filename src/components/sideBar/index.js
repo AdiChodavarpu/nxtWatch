@@ -37,6 +37,7 @@ class SideBar extends Component {
                   <SideBarListItems isDark={isDark} isActive={pathname === '/'}>
                     <ListItemButton type="button">
                       <HomeIcon />
+
                       <ListCategory isDark={isDark}>Home</ListCategory>
                     </ListItemButton>
                   </SideBarListItems>

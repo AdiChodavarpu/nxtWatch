@@ -36,7 +36,7 @@ const TrendingVideoSection = props => (
       return (
         <Navlink to={`/videos/${id}`}>
           <TrendingItemContainer>
-            <TrendingImage src={thumbnailUrl} alt={title} />
+            <TrendingImage src={thumbnailUrl} alt="video thumbnail" />
             <TrendingDescription>
               <TrendingTitle isDark={isDark}>{title}</TrendingTitle>
               <TrendingChannelName isDark={isDark}>{name}</TrendingChannelName>

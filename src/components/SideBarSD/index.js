@@ -17,7 +17,6 @@ import {
 const SideBarSD = props => {
   const {location} = props
   const {pathname} = location
-  console.log(pathname)
 
   return (
     <SavedContext.Consumer>
