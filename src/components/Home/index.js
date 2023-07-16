@@ -192,7 +192,7 @@ class Home extends Component {
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
               alt="failure view"
             />
-            <FailureHeading as="p" isDark={isDark}>
+            <FailureHeading isDark={isDark}>
               Oops! Something Went Wrong
             </FailureHeading>
             <FailureDescription isDark={isDark}>
@@ -200,9 +200,13 @@ class Home extends Component {
               again.
             </FailureDescription>
 
-            <RetryButton type="button" onClick={this.onClickRetry}>
+            <button
+              className="retry-button"
+              type="button"
+              onClick={this.onClickRetry}
+            >
               Retry
-            </RetryButton>
+            </button>
           </FailureContainer>
         )
       }}
@@ -226,41 +230,45 @@ class Home extends Component {
     }
   }
 
-  renderHomeContainer = () => (
-    <HomeMainContainer>
-      <SearchInputContainer>
-        <SearchInputElement
-          type="search"
-          placeholder="Search"
-          onChange={this.onChangeUserSearch}
-        />
-        <SearchIconButton
-          data-testid="searchButton"
-          type="button"
-          onClick={this.onClickSearchButton}
-        >
-          <SearchIcon />
-        </SearchIconButton>
-      </SearchInputContainer>
-      <VideoMainConatainer>{this.renderHome()}</VideoMainConatainer>
-    </HomeMainContainer>
-  )
+  renderHomeContainer = () => {
+    const {userSearchInput} = this.state
+    return (
+      <HomeMainContainer>
+        <SearchInputContainer>
+          <SearchInputElement
+            value={userSearchInput}
+            type="search"
+            placeholder="Search"
+            onChange={this.onChangeUserSearch}
+          />
+          <SearchIconButton
+            data-testid="searchButton"
+            type="button"
+            onClick={this.onClickSearchButton}
+          >
+            <SearchIcon />
+          </SearchIconButton>
+        </SearchInputContainer>
+        <VideoMainConatainer>{this.renderHome()}</VideoMainConatainer>
+      </HomeMainContainer>
+    )
+  }
 
   render() {
     const {closeButton} = this.state
-
     return (
       <SavedContext.Consumer>
         {value => {
           const {isDark} = value
+
           return (
-            <HomeContainerElement data-testid="home" isDark={isDark}>
+            <HomeContainerElement isDark={isDark} data-testid="home">
               <Header />
               <MainContainer>
                 <SideBar />
                 <HomeContainer>
-                  {closeButton ? null : this.renderBannerContainer()}
-                  {this.renderHomeContainer()}
+                  <>{!closeButton && this.renderBannerContainer()}</>
+                  <>{this.renderHomeContainer()}</>
                 </HomeContainer>
               </MainContainer>
             </HomeContainerElement>

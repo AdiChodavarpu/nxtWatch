@@ -132,12 +132,12 @@ class LoginForm extends Component {
         return (
           <CheckBoxContiner>
             <CheckBoxElement
-              htmlFor="checkBox"
+              id="userCheckBox"
               type="checkbox"
               value={showPassword}
               onChange={this.onChangeCheckbox}
             />
-            <CheckBoxDescription id="checkBox" as="label" isDark={isDark}>
+            <CheckBoxDescription htmlFor="userCheckBox" isDark={isDark}>
               Show Password
             </CheckBoxDescription>
           </CheckBoxContiner>

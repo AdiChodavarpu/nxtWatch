@@ -30,13 +30,21 @@ class SideBar extends Component {
         {value => {
           const {isDark} = value
 
+          const homeColor = pathname === '/' ? 'active-icon' : 'inactive-icon'
+          const trendingColor =
+            pathname === '/trending' ? 'active-icon' : 'inactive-icon'
+          const gamingColor =
+            pathname === '/gaming' ? 'active-icon' : 'inactive-icon'
+          const savedColor =
+            pathname === '/saved-videos' ? 'active-icon' : 'inactive-icon'
+
           return (
             <SideBarContainer isDark={isDark}>
               <SideBarListContainer>
                 <Link to="/" className="nav-link">
                   <SideBarListItems isDark={isDark} isActive={pathname === '/'}>
                     <ListItemButton type="button">
-                      <HomeIcon />
+                      <HomeIcon className={homeColor} />
 
                       <ListCategory isDark={isDark}>Home</ListCategory>
                     </ListItemButton>
@@ -48,7 +56,7 @@ class SideBar extends Component {
                     isActive={pathname === '/trending'}
                   >
                     <ListItemButton type="button">
-                      <TrendingIcon />
+                      <TrendingIcon className={trendingColor} />
                       <ListCategory isDark={isDark}>Trending</ListCategory>
                     </ListItemButton>
                   </SideBarListItems>
@@ -59,7 +67,7 @@ class SideBar extends Component {
                     isActive={pathname === '/gaming'}
                   >
                     <ListItemButton type="button">
-                      <GamingIcon />
+                      <GamingIcon className={gamingColor} />
                       <ListCategory isDark={isDark}>Gaming</ListCategory>
                     </ListItemButton>
                   </SideBarListItems>
@@ -70,7 +78,7 @@ class SideBar extends Component {
                     isActive={pathname === '/saved-videos'}
                   >
                     <ListItemButton type="button">
-                      <SavedIcon isdark={isDark.string} />
+                      <SavedIcon className={savedColor} />
                       <ListCategory isDark={isDark}>Saved videos</ListCategory>
                     </ListItemButton>
                   </SideBarListItems>

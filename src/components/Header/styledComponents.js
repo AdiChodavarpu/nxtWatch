@@ -54,7 +54,7 @@ export const WebSiteLogo = styled.img`
   height: 35px;
   width: 135px;
 `
-export const NavOptionsContainer = styled.ul`
+export const NavOptionsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,7 +158,7 @@ export const ConfirmButton = styled.button`
   cursor: pointer;
 `
 
-export const NavOptionsSmallDevicesContainer = styled.ul`
+export const NavOptionsSmallDevicesContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

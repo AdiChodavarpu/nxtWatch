@@ -75,7 +75,7 @@ export const CheckBoxElement = styled.input`
   outline: none;
   cursor: pointer;
 `
-export const CheckBoxDescription = styled.p`
+export const CheckBoxDescription = styled.label`
   color: ${props => (props.isDark ? ' #ffffff' : ' #0f0f0f')};
   font-size: 14px;
   font-family: 'Roboto';

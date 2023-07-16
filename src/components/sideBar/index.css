@@ -1,3 +1,11 @@
 .nav-link {
   text-decoration: none;
 }
+
+.active-icon {
+  color: #ff0000;
+}
+
+.inactive-icon {
+  color: #606060;
+}

@@ -19,7 +19,7 @@ import {
   IconsContainer,
   LikeDescription,
   DislikeDescription,
-  SaveDescription,
+  SavedButton,
   IconDescription,
   IconsItemsContainer,
   LikeIcon,
@@ -168,8 +168,8 @@ class VideoItemDetailsSection extends Component {
             <IconsItemsContainer>
               <IconButton type="button" onClick={onClickSaveButton}>
                 <SaveICon color={saveColor ? '#2563eb' : ' #64748b '} />
-                <SaveDescription saved={saveColor}>{savedText}</SaveDescription>
               </IconButton>
+              <SavedButton saved={saveColor}>{savedText}</SavedButton>
             </IconsItemsContainer>
           )
         }}

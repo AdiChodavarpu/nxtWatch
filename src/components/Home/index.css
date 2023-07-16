@@ -5,3 +5,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.retry-button {
+  color: #ffffff;
+  height: 36px;
+  width: 110px;
+  border-radius: 5px;
+  border: none;
+  background-color: #00306e;
+  margin-top: 20px;
+}

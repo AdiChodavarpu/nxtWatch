@@ -1,6 +1,6 @@
 import {Component} from 'react'
 
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 
 import Home from './components/Home'
 import LoginForm from './components/LoginForm'
@@ -70,7 +70,8 @@ class App extends Component {
             path="/videos/:id"
             component={VideoItemDetailsSection}
           />
-          <Route component={NotFound} />
+          <Route exact path="/not-found" component={NotFound} />
+          <Redirect to="/not-found" />
         </Switch>
       </SavedContext.Provider>
     )

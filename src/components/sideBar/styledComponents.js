@@ -48,25 +48,10 @@ export const ListCategory = styled.h1`
   color: ${props => (props.isDark ? ' #f9f9f9' : '#181818')};
 `
 
-export const HomeIcon = styled(AiTwotoneHome)`
-  color: red;
-  transform: scale(2);
-  margin: 5%;
-`
-export const TrendingIcon = styled(AiFillFire)`
-  color: red;
-  transform: scale(3);
-  margin: 5%;
-`
-export const GamingIcon = styled(SiYoutubegaming)`
-  color: red;
-  transform: scale(3);
-  margin: 5%;
-`
-export const SavedIcon = styled(MdPlaylistAdd)`
-  color: red;
-  transform: scale(2);
-`
+export const HomeIcon = styled(AiTwotoneHome)``
+export const TrendingIcon = styled(AiFillFire)``
+export const GamingIcon = styled(SiYoutubegaming)``
+export const SavedIcon = styled(MdPlaylistAdd)``
 
 export const ContactContainer = styled.div`
   display: flex;
