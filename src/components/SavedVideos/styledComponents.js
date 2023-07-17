@@ -49,7 +49,7 @@ export const SavedIconContainer = styled.div`
 export const SavedHeading = styled.h1`
   color: ${props => (props.isDark ? ' #f9f9f9' : '#231f20')};
   font-size: 35px;
-  font-family: 'Roboto';
+
   margin-left: 15px;
 `
 export const SavedMainContainer = styled.ul`
@@ -58,6 +58,7 @@ export const SavedMainContainer = styled.ul`
   padding-top: 20px;
   padding: 30px;
   margin-top: 25px;
+  list-style-type: none;
   @media screen and (max-width: 767px) {
     width: 90%;
   }

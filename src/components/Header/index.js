@@ -159,10 +159,9 @@ const Header = props => (
                 <MoonButton
                   data-testid="theme"
                   type="button"
-                  isDark={isDark}
                   onClick={UpdatethemeLogo}
                 >
-                  {isDark ? <LightICon /> : <MoonICon />}
+                  {isDark ? <LightICon color="white" /> : <MoonICon />}
                 </MoonButton>
                 <ProfileImage
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
@@ -183,10 +182,9 @@ const Header = props => (
                 <MoonButton
                   data-testid="theme"
                   type="button"
-                  isDark={isDark}
                   onClick={UpdatethemeLogo}
                 >
-                  {isDark ? <LightICon /> : <MoonICon />}
+                  {isDark ? <LightICon color="white" /> : <MoonICon />}
                 </MoonButton>
                 {HamburgerIconPopUp()}
                 {renderSmallDevicePopUp()}

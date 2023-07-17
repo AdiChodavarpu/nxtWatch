@@ -49,7 +49,7 @@ export const TrendingIconContaier = styled.div`
 export const TrendingHeading = styled.h1`
   color: ${props => (props.isDark ? ' #f9f9f9' : '#231f20')};
   font-size: 35px;
-  font-family: 'Roboto';
+
   margin-left: 15px;
 `
 export const TrendingMainContainer = styled.div`

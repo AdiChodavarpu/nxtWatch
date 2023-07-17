@@ -62,7 +62,7 @@ export const NavOptionsContainer = styled.div`
     display: none;
   }
 `
-export const MoonButton = styled.div`
+export const MoonButton = styled.button`
   background-color: transparent;
   border: none;
   padding-top: 8px;

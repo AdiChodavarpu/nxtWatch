@@ -29,7 +29,9 @@ const SavedVideos = () => (
           <SavedIconContainer isDark={isDark}>
             <SavedIcon />
           </SavedIconContainer>
-          <SavedHeading isDark={isDark}>Saved Videos</SavedHeading>
+          <SavedHeading as="h1" isDark={isDark}>
+            Saved Videos
+          </SavedHeading>
         </SavedBannerContainer>
       )
 

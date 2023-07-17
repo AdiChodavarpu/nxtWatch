@@ -95,15 +95,6 @@ export const SaveDescription = styled.p`
   font-weight: 500;
   margin-left: 2px;
 `
-export const SavedButton = styled.button`
-  background-color: transparent;
-  border: none;
-  color: ${props => (props.saved ? '#2563eb' : ' #64748b ')};
-  font-size: 18px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  margin-left: 2px;
-`
 
 export const DotElement = styled(BsDot)`
   color: #909090;
@@ -205,6 +196,16 @@ export const IconButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+export const SavedButton = styled(IconButton)`
+  background-color: transparent;
+  border: none;
+  color: ${props => (props.saved ? '#2563eb' : ' #64748b ')};
+  font-size: 18px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin-left: 2px;
 `
 
 export const FailureContainer = styled.div`

@@ -5,7 +5,7 @@ import {
   SavedItemContainer,
   SavedImage,
   SavedDescriptionContainer,
-  SavedItemHeading,
+  SavedItemTitle,
   SavedItemDescription,
   SaveViewsContainer,
   SavedViews,
@@ -36,15 +36,20 @@ const SavedVideoItemDetails = props => (
           <SavedItemContainer>
             <SavedImage src={thumbnailUrl} alt="video thumbnail" />
             <SavedDescriptionContainer>
-              <SavedItemHeading isDark={isDark}>{title}</SavedItemHeading>
+              <SavedItemTitle isDark={isDark}>{title}</SavedItemTitle>
               <SavedItemDescription isDark={isDark}>
                 {name}
               </SavedItemDescription>
               <SaveViewsContainer isDark={isDark}>
-                <SavedViews isDark={isDark}>{viewCount} views</SavedViews>
+                <SavedViews as="p" isDark={isDark}>
+                  {viewCount}
+                  <span>views</span>
+                </SavedViews>
                 <PublishedContainer isDark={isDark}>
                   <Dot />
-                  <SavedViews isDark={isDark}>{dateDistance}</SavedViews>
+                  <SavedViews as="p" isDark={isDark}>
+                    {dateDistance}
+                  </SavedViews>
                 </PublishedContainer>
               </SaveViewsContainer>
             </SavedDescriptionContainer>

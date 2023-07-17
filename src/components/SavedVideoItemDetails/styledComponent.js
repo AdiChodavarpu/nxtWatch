@@ -7,7 +7,6 @@ export const NavLinkElement = styled(Link)`
 `
 
 export const SavedItemContainer = styled.li`
-  list-style-type: none;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -45,13 +44,12 @@ export const SavedDescriptionContainer = styled.div`
     padding-top: 20px;
   }
 `
-export const SavedItemHeading = styled.p`
+export const SavedItemTitle = styled.p`
   color: ${props => (props.isDark ? '#ebebeb' : '#231f20')};
   font-size: 28px;
-  font-family: 'Roboto';
   margin: 0px;
   width: 82%;
-  font-weight: 500;
+  font-weight: 600;
 
   @media screen and (max-width: 767px) {
     font-size: 21px;
@@ -61,7 +59,6 @@ export const SavedItemHeading = styled.p`
 export const SavedItemDescription = styled.p`
   color: ${props => (props.isDark ? '#cccccc' : ' #606060')};
   font-size: 18px;
-  font-family: 'Roboto';
   font-weight: 500;
   margin: 0px;
   margin-top: 10px;
