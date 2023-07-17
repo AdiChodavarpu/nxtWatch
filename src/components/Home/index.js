@@ -262,7 +262,7 @@ class Home extends Component {
           const {isDark} = value
 
           return (
-            <HomeContainerElement isDark={isDark} data-testid="home">
+            <HomeContainerElement data-testid="home" isDark={isDark}>
               <Header />
               <MainContainer>
                 <SideBar />

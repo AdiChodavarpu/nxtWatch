@@ -169,7 +169,9 @@ class VideoItemDetailsSection extends Component {
               <IconButton type="button" onClick={onClickSaveButton}>
                 <SaveICon color={saveColor ? '#2563eb' : ' #64748b '} />
               </IconButton>
-              <SavedButton saved={saveColor}>{savedText}</SavedButton>
+              <SavedButton as="p" saved={saveColor}>
+                {savedText}
+              </SavedButton>
             </IconsItemsContainer>
           )
         }}
