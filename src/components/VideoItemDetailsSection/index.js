@@ -17,8 +17,8 @@ import {
   VideoDetailsHeading,
   VideoDetailsParagraph,
   IconsContainer,
-  LikeDescription,
-  DislikeDescription,
+  Likedbutton,
+  DislikedButton,
   SavedButton,
   IconDescription,
   IconsItemsContainer,
@@ -32,7 +32,6 @@ import {
   ChannelContainer,
   Subscribers,
   ChannelHeading,
-  IconButton,
   FailureContainer,
   FailureImage,
   FailureHeading,
@@ -230,21 +229,27 @@ class VideoItemDetailsSection extends Component {
 
               <IconsContainer>
                 <IconsItemsContainer>
-                  <IconButton type="button" onClick={this.onClickLikeButton}>
+                  <Likedbutton
+                    type="button"
+                    liked={LikedColor}
+                    onClick={this.onClickLikeButton}
+                  >
                     <LikeIcon color={LikedColor ? '#2563eb' : ' #64748b '} />
-                    <LikeDescription liked={LikedColor}>Like</LikeDescription>
-                  </IconButton>
+                    Like
+                  </Likedbutton>
                 </IconsItemsContainer>
 
                 <IconsItemsContainer>
-                  <IconButton type="button" onClick={this.onClickDislikeButton}>
+                  <DislikedButton
+                    type="button"
+                    disliked={DislikedColor}
+                    onClick={this.onClickDislikeButton}
+                  >
                     <DisLikeIcon
                       color={DislikedColor ? '#2563eb' : ' #64748b '}
                     />
-                    <DislikeDescription disliked={DislikedColor}>
-                      Dislike
-                    </DislikeDescription>
-                  </IconButton>
+                    Dislike
+                  </DislikedButton>
                 </IconsItemsContainer>
                 {this.renderSavedSection()}
               </IconsContainer>

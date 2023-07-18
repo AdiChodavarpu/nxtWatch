@@ -51,8 +51,8 @@ const SavedVideos = () => (
       const renderSavedVideosList = () => (
         <SavedMainContainer>
           {SavedItemList.length > 0
-            ? SavedItemList.map(eachitem => (
-                <SavedVideoItemDetails key={eachitem.id} SavedItem={eachitem} />
+            ? SavedItemList.map(eachsave => (
+                <SavedVideoItemDetails key={eachsave.id} SavedItem={eachsave} />
               ))
             : NoSavedItems()}
         </SavedMainContainer>

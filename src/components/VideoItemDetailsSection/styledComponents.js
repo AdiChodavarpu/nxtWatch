@@ -189,13 +189,23 @@ export const Subscribers = styled.p`
   margin-top: 8px;
 `
 export const IconButton = styled.button`
-  color: ${props => (props.liked ? '#3b82f6' : ' #606060')};
+  color: ${props => (props.liked ? '#3b82f6' : '#64748b ')};
   background-color: transparent;
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+`
+
+export const Likedbutton = styled(IconButton)`
+  color: ${props => (props.liked ? '#2563eb' : ' #64748b')};
+`
+export const DislikedButton = styled(IconButton)`
+  color: ${props => (props.disliked ? '#2563eb' : '#64748b ')};
 `
 
 export const SavedButton = styled(IconButton)`
