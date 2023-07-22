@@ -43,7 +43,7 @@ class SideBar extends Component {
               <SideBarListContainer>
                 <Link to="/" className="nav-link">
                   <SideBarListItems isDark={isDark} isActive={pathname === '/'}>
-                    <ListItemButton type="button">
+                    <ListItemButton>
                       <HomeIcon className={homeColor} />
 
                       <ListCategory isDark={isDark}>Home</ListCategory>
@@ -55,7 +55,7 @@ class SideBar extends Component {
                     isDark={isDark}
                     isActive={pathname === '/trending'}
                   >
-                    <ListItemButton type="button">
+                    <ListItemButton>
                       <TrendingIcon className={trendingColor} />
                       <ListCategory isDark={isDark}>Trending</ListCategory>
                     </ListItemButton>
@@ -66,7 +66,7 @@ class SideBar extends Component {
                     isDark={isDark}
                     isActive={pathname === '/gaming'}
                   >
-                    <ListItemButton type="button">
+                    <ListItemButton>
                       <GamingIcon className={gamingColor} />
                       <ListCategory isDark={isDark}>Gaming</ListCategory>
                     </ListItemButton>

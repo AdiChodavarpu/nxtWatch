@@ -31,7 +31,7 @@ export const SideBarListItems = styled.li`
   background-color: ${props =>
     props.isDark ? props.isActive && ' #313131' : props.isActive && '#e2e8f0'};
 `
-export const ListItemButton = styled.button`
+export const ListItemButton = styled.div`
   background-color: transparent;
   border: none;
   display: flex;
